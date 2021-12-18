@@ -2,3 +2,8 @@ streamlit
 matplotlib
 numpy
 pandas
+sqlalchemy
+seabon
+bs4
+lazypredict
+py-avataaars
