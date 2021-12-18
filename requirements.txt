@@ -4,3 +4,4 @@ numpy
 pandas
 sqlalchemy
 bs4
+scikit-learn

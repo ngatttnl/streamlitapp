@@ -1,7 +1,4 @@
 import streamlit as st
-import numpy as np
-import pandas as pd
-from sklearn import datasets
 
 def app():
     st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
@@ -27,17 +24,8 @@ def app():
     </div>
   </nav>
   """, unsafe_allow_html=True)
-    st.title('Data')
+    st.title('Home')
 
-    st.write("This is the `Data` page of the multi-page app.")
+    st.write('This is the `home page` of this multi-page app.')
 
-    st.write("The following is the DataFrame of the `iris` dataset.")
-
-    iris = datasets.load_iris()
-    X = pd.DataFrame(iris.data, columns = iris.feature_names)
-    Y = pd.Series(iris.target, name = 'class')
-    df = pd.concat([X,Y], axis=1)
-    df['class'] = df['class'].map({0:"setosa", 1:"versicolor", 2:"virginica"})
-    st.write(df)
-    
-    
+    st.write('In this app, we will be building a simple classification model using the Iris dataset.')
