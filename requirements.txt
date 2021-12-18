@@ -4,5 +4,3 @@ numpy
 pandas
 sqlalchemy
 bs4
-lazypredict
-py-avataaars
