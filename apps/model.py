@@ -34,6 +34,7 @@ def app():
 
     st.write('The model performance of the Iris dataset is presented below.')
 
+    """
     # Load iris dataset
     iris = datasets.load_iris()
     X = iris.data
@@ -48,3 +49,4 @@ def app():
     score = clf.score(X_test, Y_test)
     st.write('Accuracy:')
     st.write(score)
+    """
