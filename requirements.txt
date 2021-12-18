@@ -1,6 +1,7 @@
 streamlit
 matplotlib
 yfinance
+plotly
 numpy
 pandas
 sqlalchemy
