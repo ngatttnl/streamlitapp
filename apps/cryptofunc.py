@@ -11,7 +11,6 @@ info = client.get_exchange_info()
 
 coins = ['BAKEUSDT', 'ADAUSDT', 'BATUSDT', 'BTCUSDT', 'BTTUSDT', 'ENJUSDT', 'ETHUSDT', 'XRPUSDT', 'NEARUSDT', 'OGNUSDT', 'KAVAUSDT', 'ZILUSDT', 'FTMUSDT', 'WINUSDT']
 
-
 def get_all_coins():
     all_pairs = pd.DataFrame(client.get_ticker())
     all_pairs['priceChangePercent'] = all_pairs['priceChangePercent'].astype(float)
@@ -22,8 +21,6 @@ def get_all_coins():
     df = pd.DataFrame(non_lev)
     return df
     
-
-
 def get_indicators(inputSymbol): 
     symbol = inputSymbol[0:(len(inputSymbol) - 4)] + "/USDT"
     price = 0

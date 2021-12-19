@@ -1,7 +1,7 @@
 import streamlit as st
 from binance.client import Client
 import pandas as pd
-from apps import cryptofunc
+#from apps import cryptofunc
 
 client = Client()
 info = client.get_exchange_info()
