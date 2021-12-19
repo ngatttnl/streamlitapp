@@ -1,6 +1,6 @@
 import streamlit as st
 from multiapp import MultiApp
-from apps import home, data, model, crypto, sp500, mlapp, themes, modelper, binanceprice, speech #, avatar # import your app modules here
+from apps import home, data, model, crypto, sp500, mlapp, themes, modelper, binanceprice#, speech, avatar # import your app modules here
 
 app = MultiApp()
 

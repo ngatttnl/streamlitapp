@@ -1,14 +1,10 @@
-from typing import Counter
 from numpy import array, percentile
 import pandas as pd
 from binance.client import Client
 import csv
-from django.http import JsonResponse
 import ccxt
 import pandas_ta as ta
-
 from datetime import date, datetime
-from django.utils import timezone
 
 client = Client()
 info = client.get_exchange_info()
