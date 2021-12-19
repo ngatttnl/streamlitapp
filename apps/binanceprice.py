@@ -45,15 +45,15 @@ def app():
   col1, col2, col3 = st.columns(3)
 
   # Widget (Cryptocurrency selection box)
-  col1_selection = st.sidebar.selectbox('Price 1', df.symbol, list(df.symbol).index('BTCBUSD') )
-  col2_selection = st.sidebar.selectbox('Price 2', df.symbol, list(df.symbol).index('ETHBUSD') )
-  col3_selection = st.sidebar.selectbox('Price 3', df.symbol, list(df.symbol).index('BNBBUSD') )
-  col4_selection = st.sidebar.selectbox('Price 4', df.symbol, list(df.symbol).index('XRPBUSD') )
-  col5_selection = st.sidebar.selectbox('Price 5', df.symbol, list(df.symbol).index('ADABUSD') )
-  col6_selection = st.sidebar.selectbox('Price 6', df.symbol, list(df.symbol).index('DOGEBUSD') )
-  col7_selection = st.sidebar.selectbox('Price 7', df.symbol, list(df.symbol).index('SHIBBUSD') )
-  col8_selection = st.sidebar.selectbox('Price 8', df.symbol, list(df.symbol).index('DOTBUSD') )
-  col9_selection = st.sidebar.selectbox('Price 9', df.symbol, list(df.symbol).index('MATICBUSD') )
+  col1_selection = st.sidebar.selectbox('Price 1', df.symbol, list(df.symbol).index('BTCUSDT') )
+  col2_selection = st.sidebar.selectbox('Price 2', df.symbol, list(df.symbol).index('ETHUSDT') )
+  col3_selection = st.sidebar.selectbox('Price 3', df.symbol, list(df.symbol).index('BNBUSDT') )
+  col4_selection = st.sidebar.selectbox('Price 4', df.symbol, list(df.symbol).index('XRPUSDT') )
+  col5_selection = st.sidebar.selectbox('Price 5', df.symbol, list(df.symbol).index('ADAUSDT') )
+  col6_selection = st.sidebar.selectbox('Price 6', df.symbol, list(df.symbol).index('DOGEUSDT') )
+  col7_selection = st.sidebar.selectbox('Price 7', df.symbol, list(df.symbol).index('SHIBUSDT') )
+  col8_selection = st.sidebar.selectbox('Price 8', df.symbol, list(df.symbol).index('DOTUSDT') )
+  col9_selection = st.sidebar.selectbox('Price 9', df.symbol, list(df.symbol).index('MATICUSDT') )
 
   # DataFrame of selected Cryptocurrency
   col1_df = df[df.symbol == col1_selection]
