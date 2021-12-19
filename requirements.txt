@@ -8,3 +8,4 @@ sqlalchemy
 bs4
 scikit-learn
 pandas
+python-binance
