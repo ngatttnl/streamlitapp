@@ -1,12 +1,15 @@
 import streamlit as st
 from binance.client import Client
 import pandas as pd
+from PIL import Image
 #from apps import cryptofunc
 
 client = Client()
 info = client.get_exchange_info()
 
 def app():
+    image = Image.open('invest.png')
+    st.image(image, width = 500)
     st.header('**Selected Price**')
 
     # Load market data from Binance API
