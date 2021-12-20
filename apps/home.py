@@ -34,8 +34,11 @@ def app():
     st.header('**Selected Price**')
 
     # Load market data from Binance API
-    df = pd.read_json('https://api.binance.com/api/v3/ticker/24hr')
-
+    all_pairs = pd.read_json('https://api.binance.com/api/v3/ticker/24hr')
+    relev = all_pairs[all_pairs.symbol.str.contains('USDT')]
+    
+    df = relev[~((relev.symbol.str.contains('UP')) | (relev.symbol.str.contains('DOWN')) | (relev.symbol.str.contains('BEAR')) | (relev.symbol.str.contains('BULL')))]
+    
     # Widget (Cryptocurrency selection box) 
     col1_selection = st.selectbox('Crypto', df.symbol, list(df.symbol).index('BTCUSDT') )
     # Custom function for rounding values

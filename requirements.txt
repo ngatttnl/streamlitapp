@@ -10,3 +10,4 @@ scikit-learn
 pandas
 python-binance
 ccxt
+tradingview_ta
