@@ -1,6 +1,7 @@
 import streamlit as st
 from binance.client import Client
 import pandas as pd
+import streamlit.components.v1 as components
 from PIL import Image
 #from apps import cryptofunc
 
@@ -20,6 +21,7 @@ def app():
     
     # Widget (Cryptocurrency selection box) 
     col1_selection = st.selectbox('Crypto', df.symbol, list(df.symbol).index('BTCUSDT') )
+
     # Custom function for rounding values
     def round_value(input_value):
         if input_value.values > 1:
@@ -35,7 +37,6 @@ def app():
 
     # Apply a custom function to conditionally round values
     col1_price = round_value(col1_df.weightedAvgPrice)
-    
 
     # Select the priceChangePercent column
     col1_percent = f'{float(col1_df.priceChangePercent)}%'
@@ -43,7 +44,47 @@ def app():
     # Create a metrics price box
     col1.metric(col1_selection, col1_price, col1_percent)
     
+    #chart
+    html_str = f"""
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+    <div id="technical-analysis"></div>
+    <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/{col1_selection}/" rel="noopener" target="_blank"><span class="blue-text">{col1_selection} Chart</span></a> by TradingView</div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+    new TradingView.widget(
+    {{
+    "container_id": "technical-analysis",
+    "width": "100%",
+    "height": 800,
+    "symbol": "BINANCE:{col1_selection}",
+    "interval": "D",
+    "timezone": "exchange",
+    "theme": "light",
+    "style": "1",
+    "toolbar_bg": "#f1f3f6",
+    "withdateranges": true,
+    "hide_side_toolbar": false,
+    "allow_symbol_change": false,
+    "save_image": false,
+    "studies": [
+        "ROC@tv-basicstudies",
+        "StochasticRSI@tv-basicstudies",
+        "MASimple@tv-basicstudies"
+    ],
+    "show_popup_button": true,
+    "popup_width": "1000",
+    "popup_height": "650",
+    "locale": "in"
+    }}
+    );
+    </script>
+    </div>
+    <!-- TradingView Widget END -->
+    """
+    components.html(html_str, height=820)
+
     st.header('**All Price**')
     st.dataframe(df)
-    
+
     
