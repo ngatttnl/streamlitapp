@@ -1,12 +1,7 @@
 import streamlit as st
-from binance.client import Client
-import pandas as pd
 import streamlit.components.v1 as components
 from PIL import Image
 #from apps import cryptofunc
-
-client = Client()
-info = client.get_exchange_info()
 
 def app():
     
