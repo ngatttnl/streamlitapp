@@ -39,6 +39,28 @@ class MultiApp:
         })
 
     def run(self):
+        st.set_page_config(
+        page_title="Investing world",
+        page_icon="🧊",
+        layout="wide",
+        initial_sidebar_state="expanded")
+        hide_menu_style = """
+                <style>
+                #MainMenu {visibility: hidden;}
+                </style>
+                """
+        st.markdown(hide_menu_style, unsafe_allow_html=True)
+        st.markdown(
+            f"""
+                <style>
+                    .sidebar .sidebar-content {{
+                        width: 200px;
+                    }}
+                </style>
+            """,
+            unsafe_allow_html=True
+        )
+        
         #app = st.selectbox(
         st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
 
