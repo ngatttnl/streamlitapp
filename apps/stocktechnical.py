@@ -2,15 +2,29 @@ import streamlit as st
 import pandas as pd
 import streamlit.components.v1 as components
 from PIL import Image
+from multiapp import MultiApp
 
 
 def app():
+    
     CHOICES = {"HNX:KLF": "HNX: KLF", "HOSE:AMD": "HOSE: AMD", "HOSE:MHC": "HOSE: MHC", "HNX:NBC": "HNX: NBC",
         "UPCOM:SBS": "UPCOM: SBS", "HOSE:ROS": "HOSE: ROS", "HOSE:TCH": "HOSE: TCH", "HOSE:TTB": "HOSE: TTB",
         "HOSE:PVT": "HOSE: PVT", "HOSE:QBS": "HOSE: QBS"}
-    stock = st.selectbox("Select stock", CHOICES.keys(), format_func=lambda x:CHOICES[ x ])
     
-    newstock = stock.replace(":", "-")
+    col01, col02 = st.columns(2)
+    with col01:
+        stock = st.selectbox("Select stock", CHOICES.keys(), format_func=lambda x:CHOICES[ x ])
+    
+    
+    with col02:
+        st.write("Click here if the page doesn't refresh")
+        btn = st.button("Submit")
+    if btn:
+        pass
+
+    language = st.session_state.key 
+    
+    newstock = stock.replace(":", "-")   
 
     col11, col12 = st.columns(2)
     with col11:
@@ -24,7 +38,7 @@ def app():
         {{
         "symbol": "{stock}",
         "width": 500,
-        "locale": "en",
+        "locale": "{language}",
         "colorTheme": "light",
         "isTransparent": false
         }}
@@ -44,8 +58,8 @@ def app():
         {{
         "symbol": "{stock}",
         "width": 450,
-        "height": 280,
-        "locale": "en",
+        "height": 270,
+        "locale": "{language}",
         "dateRange": "12M",
         "colorTheme": "light",
         "trendLineColor": "rgba(41, 98, 255, 1)",
@@ -76,7 +90,7 @@ def app():
         "height": "500",
         "symbol": "{stock}",
         "showIntervalTabs": true,
-        "locale": "en",
+        "locale": "{language}",
         "colorTheme": "light"
         }}
         </script>
@@ -97,7 +111,7 @@ def app():
         "height": 500,
         "colorTheme": "light",
         "isTransparent": false,
-        "locale": "en"
+        "locale": "{language}"
         }}
         </script>
         </div>

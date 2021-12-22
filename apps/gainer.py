@@ -2,6 +2,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 def app():
+    language = st.session_state.key 
     col11, col12 = st.columns(2)
     with col11:
         st.title('HNX')
@@ -16,7 +17,7 @@ def app():
     "dateRange": "12M",
     "exchange": "HNX",
     "showChart": true,
-    "locale": "en",
+    "locale": "{language}",
     "largeChartUrl": "",
     "isTransparent": false,
     "showSymbolLogo": false,
@@ -51,7 +52,7 @@ def app():
     "dateRange": "12M",
     "exchange": "UPCOM",
     "showChart": true,
-    "locale": "en",
+    "locale": "{language}",
     "largeChartUrl": "",
     "isTransparent": false,
     "showSymbolLogo": false,

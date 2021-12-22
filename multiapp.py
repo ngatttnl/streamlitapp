@@ -23,7 +23,7 @@ class MultiApp:
     """
     def __init__(self):
         self.apps = []
-
+        self.language = "en"
     def add_app(self, title, func):
         """Adds a new application.
         Parameters
@@ -37,13 +37,16 @@ class MultiApp:
             "title": title,
             "function": func
         })
-
+    def get_language(self):
+        print("get: " + self.language)
+        return self.language
     def run(self):
         st.set_page_config(
         page_title="Investing world",
         page_icon="🧊",
         layout="wide",
         initial_sidebar_state="expanded")
+
         hide_menu_style = """
                 <style>
                 #MainMenu {visibility: hidden;}
@@ -93,4 +96,9 @@ class MultiApp:
             self.apps,
             format_func=lambda app: app['title'])
 
+        languages = {"vi_VN": "Việt Nam", "en": "English", "de_DE": "Deutsch"}
+        if 'key' not in st.session_state:
+            st.session_state['key'] = 'en'
+        st.session_state['key'] = st.selectbox("Select language", languages.keys(), format_func=lambda x:languages[ x ])
+        
         app['function']()

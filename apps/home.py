@@ -4,8 +4,8 @@ from PIL import Image
 #from apps import cryptofunc
 
 def app():
-    
     st.title('Vietnamese stocks')
+    language = st.session_state.key 
     components.html(f"""
     <!-- TradingView Widget BEGIN -->
     <div class="tradingview-widget-container">
@@ -20,7 +20,7 @@ def app():
     "market": "vietnam",
     "showToolbar": true,
     "colorTheme": "light",
-    "locale": "en"
+    "locale": "{language}"
     }}
     </script>
     </div>
