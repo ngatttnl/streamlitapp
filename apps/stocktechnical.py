@@ -48,31 +48,42 @@ def app():
         #chart
         components.html(f"""
             <!-- TradingView Widget BEGIN -->
+        <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container">
-        <div id="tradingview_2479c"></div>
-        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{newstock}/" rel="noopener" target="_blank"><span class="blue-text">{newstock} Chart</span></a> by TradingView</div>
+        <div id="technical-analysis"></div>
+        <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/{newstock}/" rel="noopener" target="_blank"><span class="blue-text">{newstock} Chart</span></a> by TradingView</div>
         <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
         <script type="text/javascript">
         new TradingView.widget(
         {{
-        "width": 980,
-        "height": 610,
+        "container_id": "technical-analysis",
+        "width": "100%",
+        "height": 800,
         "symbol": "{stock}",
         "interval": "D",
-        "timezone": "Etc/UTC",
+        "timezone": "exchange",
         "theme": "light",
         "style": "1",
-        "locale": "{language}",
         "toolbar_bg": "#f1f3f6",
-        "enable_publishing": false,
+        "withdateranges": true,
+        "hide_side_toolbar": false,
         "allow_symbol_change": false,
-        "container_id": "tradingview_2479c"
+        "save_image": false,
+        "studies": [
+            "ROC@tv-basicstudies",
+            "StochasticRSI@tv-basicstudies",
+            "MASimple@tv-basicstudies"
+        ],
+        "show_popup_button": true,
+        "popup_width": "1000",
+        "popup_height": "650",
+        "locale": "{language}"
         }}
         );
         </script>
         </div>
         <!-- TradingView Widget END -->
-        """, width=1000, height=620)
+    """, height=820)
 
     col11, col12 = st.columns(2)
     with col11:

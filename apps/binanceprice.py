@@ -24,32 +24,42 @@ def app():
     
     #chart
     components.html(f"""
-    <!-- TradingView Widget BEGIN -->
+        <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container">
-        <div id="tradingview_fe4a9"></div>
-        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{crypto}/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">{crypto} Chart</span></a> by TradingView</div>
+        <div id="technical-analysis"></div>
+        <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/{crypto}/" rel="noopener" target="_blank"><span class="blue-text">{crypto} Chart</span></a> by TradingView</div>
         <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
         <script type="text/javascript">
         new TradingView.widget(
-            {{
-            "width": 980,
-            "height": 610,
-            "symbol": "BINANCE:{crypto}",
-            "interval": "D",
-            "timezone": "Etc/UTC",
-            "theme": "light",
-            "style": "1",
-            "locale": "{language}",
-            "toolbar_bg": "#f1f3f6",
-            "enable_publishing": false,
-            "allow_symbol_change": false,
-            "container_id": "tradingview_fe4a9"
-            }}
+        {{
+        "container_id": "technical-analysis",
+        "width": "100%",
+        "height": 800,
+        "symbol": "BINANCE:{crypto}",
+        "interval": "D",
+        "timezone": "exchange",
+        "theme": "light",
+        "style": "1",
+        "toolbar_bg": "#f1f3f6",
+        "withdateranges": true,
+        "hide_side_toolbar": false,
+        "allow_symbol_change": false,
+        "save_image": false,
+        "studies": [
+            "ROC@tv-basicstudies",
+            "StochasticRSI@tv-basicstudies",
+            "MASimple@tv-basicstudies"
+        ],
+        "show_popup_button": true,
+        "popup_width": "1000",
+        "popup_height": "650",
+        "locale": "{language}"
+        }}
         );
         </script>
         </div>
         <!-- TradingView Widget END -->
-    """, height=630)
+    """, height=850)
     
     col11, col12 = st.columns(2)
     with col11:
@@ -126,7 +136,7 @@ def app():
 
     col21, col22 = st.columns(2)
     #Symbol Overview Widget
-    company = components.html(f"""
+    components.html(f"""
     <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container">
         <div id="tradingview_a9bd3"></div>
@@ -166,6 +176,7 @@ def app():
         </div>
         <!-- TradingView Widget END -->
         """, width=1200, height=400)
+        
 
 
     
