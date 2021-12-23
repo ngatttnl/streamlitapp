@@ -5,8 +5,8 @@ from apps import binancescreener, home, coinmarket, datadownload, crypto, gainer
 app = MultiApp()
 
 # Add all your application here
-app.add_app("Vietnamese Stocks", home.app)
 app.add_app("Stock Technical", stocktechnical.app)
+app.add_app("Vietnamese Stocks", home.app)
 app.add_app("Gainers / Losers", gainer.app)
 
 app.add_app("Binance Price", binanceprice.app)

@@ -47,6 +47,12 @@ class MultiApp:
         page_icon="🧊",
         layout="wide",
         initial_sidebar_state="expanded")
+        
+        languages = {"vi_VN": "Việt Nam", "en": "English", "de_DE": "Deutsch"}
+        if 'key' not in st.session_state:
+            st.session_state['key'] = 'en'
+        st.session_state['key'] = st.sidebar.selectbox("Select language", languages.keys(), format_func=lambda x:languages[ x ])
+        
         st.markdown(
             f"""
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -67,6 +73,9 @@ class MultiApp:
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="http://bazancider.tk" target="_blank">Rượu trái cây Bazan</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="https://www.linguar.com" target="_blank">Học ngoại ngữ</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" href="http://thanhnga.tk" target="_blank">My Wordpress website</a>
@@ -95,9 +104,4 @@ class MultiApp:
             self.apps,
             format_func=lambda app: app['title'])
 
-        languages = {"vi_VN": "Việt Nam", "en": "English", "de_DE": "Deutsch"}
-        if 'key' not in st.session_state:
-            st.session_state['key'] = 'en'
-        st.session_state['key'] = st.sidebar.selectbox("Select language", languages.keys(), format_func=lambda x:languages[ x ])
-        
         app['function']()

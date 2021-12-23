@@ -7,9 +7,14 @@ from PIL import Image
 
 def app():
     
-    CHOICES = {"HNX:KLF": "HNX: KLF", "HOSE:AMD": "HOSE: AMD", "HOSE:MHC": "HOSE: MHC", "HNX:NBC": "HNX: NBC",
-        "UPCOM:SBS": "UPCOM: SBS", "HOSE:ROS": "HOSE: ROS", "HOSE:TCH": "HOSE: TCH", "HOSE:TTB": "HOSE: TTB",
-        "HOSE:PVT": "HOSE: PVT", "HOSE:QBS": "HOSE: QBS"}
+    CHOICES = {  
+        "HNX:ART": "ART (HNX)", "HNX:DST": "DST (HNX)", "HNX:KLF": "KLF (HNX)", "HNX:NBC": "NBC (HNX)",
+        "UPCOM:ABB": "ABB (UPCOM)", "UPCOM:BSR": "BSR (UPCOM)", "UPCOM:DPS": "DPS (UPCOM)", "UPCOM:SBS": "SBS (UPCOM)", "UPCOM:S12": "S12 (UPCOM)", 
+        "HOSE:AAA": "AAA (HOSE)", "HOSE:ACB": "ACB (HOSE)", "HOSE:TCB": "TCB (HOSE)",
+        "HOSE:HPG": "HPG (HOSE)", "HOSE:NKG": "NKG (HOSE)", 
+        "HOSE:FPT": "FPT (HOSE)", "HOSE:MHC": "MHC (HOSE)",
+        "HOSE:AMD": "AMD (HOSE)", "HOSE:HAI": "HAI (HOSE)", "HOSE:ROS": "ROS (HOSE)", "HOSE:TCH": "TCH (HOSE)", "HOSE:TTB": "TTB (HOSE)",
+        "HOSE:PVD": "PVD (HOSE)", "HOSE:PVT": "PVT (HOSE)", "HOSE:QBS": "QBS (HOSE)"}
     
     col01, col02 = st.columns(2)
     with col01:
@@ -39,7 +44,7 @@ def app():
         "interval": "1D",
         "width": "100%",
         "isTransparent": false,
-        "height": "450",
+        "height": "480",
         "symbol": "{stock}",
         "showIntervalTabs": true,
         "locale": "{language}",
@@ -48,9 +53,8 @@ def app():
         </script>
         </div>
         <!-- TradingView Widget END -->
-        """, width=510, height=460)
-        
-
+        """, width=510, height=490)
+    
         #Symbol Info
         components.html(f"""
         <!-- TradingView Widget BEGIN -->
@@ -104,7 +108,6 @@ def app():
     #Technical
     with col21:
         #Symbol Info
-
         components.html(f"""
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container">
@@ -121,9 +124,9 @@ def app():
         </script>
         </div>
         <!-- TradingView Widget END -->
-            """, width=510, height=400)
+            """, width=510, height=460)
     with col22:
-        #company info
+        #company profile
         company = components.html(f"""
         <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container">
@@ -133,7 +136,7 @@ def app():
         {{
         "symbol": "{stock}",
         "width": 500,
-        "height": 400,
+        "height": 310,
         "colorTheme": "light",
         "isTransparent": false,
         "locale": "{language}"
@@ -141,7 +144,7 @@ def app():
         </script>
         </div>
         <!-- TradingView Widget END -->
-            """, width=510, height=400)
+            """, width=510, height=310)
         
     
    
