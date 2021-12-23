@@ -1,3 +1,4 @@
+from enum import auto
 import streamlit as st
 import pandas as pd
 import streamlit.components.v1 as components
@@ -8,13 +9,19 @@ from PIL import Image
 def app():
     
     CHOICES = {  
-        "HNX:ART": "ART (HNX)", "HNX:DST": "DST (HNX)", "HNX:KLF": "KLF (HNX)", "HNX:NBC": "NBC (HNX)",
-        "UPCOM:ABB": "ABB (UPCOM)", "UPCOM:BSR": "BSR (UPCOM)", "UPCOM:DPS": "DPS (UPCOM)", "UPCOM:SBS": "SBS (UPCOM)", "UPCOM:S12": "S12 (UPCOM)", 
-        "HOSE:AAA": "AAA (HOSE)", "HOSE:ACB": "ACB (HOSE)", "HOSE:TCB": "TCB (HOSE)",
-        "HOSE:HPG": "HPG (HOSE)", "HOSE:NKG": "NKG (HOSE)", 
-        "HOSE:FPT": "FPT (HOSE)", "HOSE:MHC": "MHC (HOSE)",
-        "HOSE:AMD": "AMD (HOSE)", "HOSE:HAI": "HAI (HOSE)", "HOSE:ROS": "ROS (HOSE)", "HOSE:TCH": "TCH (HOSE)", "HOSE:TTB": "TTB (HOSE)",
-        "HOSE:PVD": "PVD (HOSE)", "HOSE:PVT": "PVT (HOSE)", "HOSE:QBS": "QBS (HOSE)"}
+        "HOSE:AAA": "AAA", "UPCOM:ABB": "ABB", "HOSE:ACB": "ACB", "HOSE:AMD": "AMD", "HNX:ART": "ART", 
+        "UPCOM:BSR": "BSR",
+        "HNX:DST": "DST", "UPCOM:DPS": "DPS", 
+        "HOSE:FPT": "FPT", 
+        "HOSE:HAI": "HAI", "HOSE:HPG": "HPG", 
+        "HNX:KLF": "KLF", 
+        "HOSE:TCB": "TCB", "HOSE:TCH": "TCH", "HOSE:TTB": "TTB",
+        "HOSE:MHC": "MHC",
+        "HNX:NBC": "NBC","HOSE:NKG": "NKG",   
+        "HOSE:ROS": "ROS", 
+        "UPCOM:SBS": "SBS", "UPCOM:S12": "S12",
+        "HOSE:PVD": "PVD", "HOSE:PVT": "PVT", 
+        "HOSE:QBS": "QBS"}
     
     col01, col02 = st.columns(2)
     with col01:
@@ -30,6 +37,55 @@ def app():
     language = st.session_state.key 
     
     newstock = stock.replace(":", "-")   
+    if "HOSE" in stock:
+        new_title = '<p style="font-family:sans-serif; color:red; font-size: 20px;">This stock does not have an advanced chart. Sorry for this inconvenient. We will update later...</p>'
+        st.markdown(new_title, unsafe_allow_html=True)
+        components.html(f"""
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{newstock}/" rel="noopener" target="_blank"><span class="blue-text">{newstock} Price Today</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+        {{
+        "symbol": "{stock}",
+        "width": 1000,
+        "locale": "{language}",
+        "colorTheme": "light",
+        "isTransparent": false
+        }}
+        </script>
+        </div>
+        <!-- TradingView Widget END -->
+        """, width=1100, height=270)
+    else:
+        #chart
+        components.html(f"""
+            <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+        <div id="tradingview_2479c"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{newstock}/" rel="noopener" target="_blank"><span class="blue-text">{newstock} Chart</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+        <script type="text/javascript">
+        new TradingView.widget(
+        {{
+        "width": 980,
+        "height": 610,
+        "symbol": "{stock}",
+        "interval": "D",
+        "timezone": "Etc/UTC",
+        "theme": "light",
+        "style": "1",
+        "locale": "{language}",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": false,
+        "allow_symbol_change": false,
+        "container_id": "tradingview_2479c"
+        }}
+        );
+        </script>
+        </div>
+        <!-- TradingView Widget END -->
+        """, width=1000, height=620)
 
     col11, col12 = st.columns(2)
     with col11:
@@ -145,6 +201,7 @@ def app():
         </div>
         <!-- TradingView Widget END -->
             """, width=510, height=310)
+    
         
     
    
