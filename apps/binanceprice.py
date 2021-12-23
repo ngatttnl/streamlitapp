@@ -17,10 +17,16 @@ def app():
     
     df = relev[~((relev.symbol.str.contains('UP')) | (relev.symbol.str.contains('DOWN')) | (relev.symbol.str.contains('BEAR')) | (relev.symbol.str.contains('BULL')))]
     
+    df = df.sort_values(by=['symbol']) 
     col0, col1= st.columns(2)
     with col0:
     # Widget (Cryptocurrency selection box) 
         crypto = st.selectbox('Crypto', df.symbol, list(df.symbol).index('BTCUSDT') )
+    with col1:
+        st.write("Click here if the page doesn't refresh")
+        btn = st.button("Submit")
+    if btn:
+        pass
     
     #chart
     components.html(f"""
@@ -59,7 +65,7 @@ def app():
         </script>
         </div>
         <!-- TradingView Widget END -->
-    """, height=850)
+    """, height=820)
     
     col11, col12 = st.columns(2)
     with col11:
