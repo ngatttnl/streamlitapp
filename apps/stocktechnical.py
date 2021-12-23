@@ -38,7 +38,7 @@ def app():
     
     newstock = stock.replace(":", "-")   
     if "HOSE" in stock:
-        new_title = '<p style="font-family:sans-serif; color:red; font-size: 20px;">This stock does not have an advanced chart. Sorry for this inconvenient. We will update later...</p>'
+        new_title = '<p style="font-family:sans-serif; color:red; font-size: 20px;">This stock does not have an advanced chart. Sorry for this inconvenience. We will update later...</p>'
         st.markdown(new_title, unsafe_allow_html=True)
         components.html(f"""
         <!-- TradingView Widget BEGIN -->

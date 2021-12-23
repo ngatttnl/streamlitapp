@@ -20,43 +20,21 @@ def app():
     col0, col1= st.columns(2)
     with col0:
     # Widget (Cryptocurrency selection box) 
-        col1_selection = st.selectbox('Crypto', df.symbol, list(df.symbol).index('BTCUSDT') )
-
-    # Custom function for rounding values
-    def round_value(input_value):
-        if input_value.values > 1:
-            a = float(round(input_value, 2))
-        else:
-            a = float(round(input_value, 8))
-        return a
-
-    
-
-    # DataFrame of selected Cryptocurrency
-    col1_df = df[df.symbol == col1_selection]
-
-    # Apply a custom function to conditionally round values
-    col1_price = round_value(col1_df.weightedAvgPrice)
-
-    # Select the priceChangePercent column
-    col1_percent = f'{float(col1_df.priceChangePercent)}%'
-    
-    # Create a metrics price box
-    col1.metric(col1_selection, col1_price, col1_percent)
+        crypto = st.selectbox('Crypto', df.symbol, list(df.symbol).index('BTCUSDT') )
     
     #chart
     components.html(f"""
     <!-- TradingView Widget BEGIN -->
         <div class="tradingview-widget-container">
         <div id="tradingview_fe4a9"></div>
-        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{col1_selection}/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">{col1_selection} Chart</span></a> by TradingView</div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{crypto}/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">{crypto} Chart</span></a> by TradingView</div>
         <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
         <script type="text/javascript">
         new TradingView.widget(
             {{
             "width": 980,
             "height": 610,
-            "symbol": "BINANCE:{col1_selection}",
+            "symbol": "BINANCE:{crypto}",
             "interval": "D",
             "timezone": "Etc/UTC",
             "theme": "light",
@@ -73,8 +51,121 @@ def app():
         <!-- TradingView Widget END -->
     """, height=630)
     
+    col11, col12 = st.columns(2)
+    with col11:
+        #technical
+        components.html(f"""
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{crypto}/technicals/" rel="noopener" target="_blank"><span class="blue-text">Technical Analysis for {crypto}</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+        {{
+        "interval": "1D",
+        "width": "100%",
+        "isTransparent": false,
+        "height": "480",
+        "symbol": "BINANCE:{crypto}",
+        "showIntervalTabs": true,
+        "locale": "{language}",
+        "colorTheme": "light"
+        }}
+        </script>
+        </div>
+        <!-- TradingView Widget END -->
+        """, width=510, height=490)
+    
+        #Symbol Info
+        components.html(f"""
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{crypto}/" rel="noopener" target="_blank"><span class="blue-text">{crypto} Quotes</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {{
+        "symbol": "BINANCE:{crypto}",
+        "width": 500,
+        "height": 290,
+        "locale": "{language}",
+        "dateRange": "12M",
+        "colorTheme": "light",
+        "trendLineColor": "rgba(41, 98, 255, 1)",
+        "underLineColor": "rgba(41, 98, 255, 0.3)",
+        "underLineBottomColor": "rgba(41, 98, 255, 0)",
+        "isTransparent": false,
+        "autosize": false,
+        "largeChartUrl": ""
+        }}
+        </script>
+        </div>
+        <!-- TradingView Widget END -->
+            """, width=510, height=300)
+        
+    with col12:
+        components.html(f"""
+    <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{crypto}/financials-overview/" rel="noopener" target="_blank"><span class="blue-text">{crypto} Fundamental Data</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-financials.js" async>
+        {{
+        "symbol": "BINANCE:{crypto}",
+        "colorTheme": "light",
+        "isTransparent": false,
+        "largeChartUrl": "",
+        "displayMode": "regular",
+        "width": 500,
+        "height": 800,
+        "locale": "{language}"
+        }}
+        </script>
+        </div>
+        <!-- TradingView Widget END -->
+            """, width=510, height=810)
+        
 
-    st.header('**All Price**')
-    st.dataframe(df)
+    col21, col22 = st.columns(2)
+    #Symbol Overview Widget
+    company = components.html(f"""
+    <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+        <div id="tradingview_a9bd3"></div>
+        <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{crypto}/?exchange=BINANCE" rel="noopener" target="_blank"><span class="blue-text">{crypto} Chart</span></a> by TradingView</div>
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+        <script type="text/javascript">
+        new TradingView.MediumWidget(
+        {{
+        "symbols": [
+            [
+            "{crypto}|12M"
+            ]
+        ],
+        "chartOnly": false,
+        "width": 1100,
+        "height": 400,
+        "locale": "{language}",
+        "colorTheme": "light",
+        "gridLineColor": "rgba(240, 243, 250, 0)",
+        "fontColor": "#787B86",
+        "isTransparent": false,
+        "autosize": false,
+        "showFloatingTooltip": true,
+        "showVolume": false,
+        "scalePosition": "no",
+        "scaleMode": "Normal",
+        "fontFamily": "Trebuchet MS, sans-serif",
+        "noTimeScale": false,
+        "chartType": "area",
+        "lineColor": "#2962FF",
+        "bottomColor": "rgba(41, 98, 255, 0)",
+        "topColor": "rgba(41, 98, 255, 0.3)",
+        "container_id": "tradingview_a9bd3"
+        }}
+        );
+        </script>
+        </div>
+        <!-- TradingView Widget END -->
+        """, width=1200, height=400)
+
 
     
