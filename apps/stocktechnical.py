@@ -7,29 +7,14 @@ from PIL import Image
 
 
 def app():
-    
-    CHOICES = {  
-        "HOSE:AAA": "AAA", "UPCOM:ABB": "ABB", "HOSE:ACB": "ACB", "HOSE:AMD": "AMD", "HNX:ART": "ART", 
-        "HNX:BLF": "BLF", "UPCOM:BSR": "BSR",
-        "HNX:DST": "DST", "UPCOM:DPS": "DPS", 
-        "HOSE:FPT": "FPT", 
-        "HOSE:HAI": "HAI", "HOSE:HPG": "HPG", 
-        "HNX:ITQ": "ITQ",
-        "UPCOM:KAC": "KAC", "HNX:KLF": "KLF", "HNX:KSQ": "KSQ",
-        "HOSE:TCB": "TCB", "HOSE:TCH": "TCH", "HOSE:TTB": "TTB", "UPCOM:TS4": "TS4",
-        "HOSE:MHC": "MHC",
-        "HNX:NBC": "NBC","HOSE:NKG": "NKG",   
-        "HOSE:ROS": "ROS", 
-        "UPCOM:S12": "S12", "UPCOM:SBS": "SBS", "UPCOM:STL": "STL",
-        "UPCOM:PLO": "PLO", "UPCOM:PNT": "PNT", "HOSE:PVD": "PVD", "HOSE:PVT": "PVT", "UPCOM:PVR": "PVR", 
-        "HOSE:QBS": "QBS",
-        "HNX:VE1": "VE1", "UPCOM:VHG": "VHG", "UPCOM:VPC": "VPC",}
+    df = pd.read_csv('vnstocks.csv', delimiter=',', header=None, skiprows=1, names=['value','name'])
+    df = df.sort_values(by=['name']) 
+    stocks = df.set_index(['value'])['name'].to_dict()
     
     col01, col02 = st.columns(2)
     with col01:
-        stock = st.selectbox("Select stock", CHOICES.keys(), format_func=lambda x:CHOICES[ x ])
-    
-    
+        stock = st.selectbox('Select', options=stocks.keys(), format_func=lambda x:stocks[ x ])
+        
     with col02:
         st.write("Click here if the page doesn't refresh")
         btn = st.button("Submit")
