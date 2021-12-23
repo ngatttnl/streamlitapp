@@ -26,9 +26,9 @@ def app():
     <!-- TradingView Widget END -->
     """, height=720)
 
-    image = Image.open('invest.png')   
-    st.image(image, width = 500)
-    st.title('Loading...')
+    #image = Image.open('invest.png')   
+    #st.image(image, width = 500)
+    #st.title('Loading...')
     placeholder1 = st.empty()
     placeholder1.warning("I am learning to make a system for trading Vietnamese stocks and cryptos on Binance. Please come back later for many more features")
   

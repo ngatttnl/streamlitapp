@@ -10,18 +10,20 @@ def app():
     
     CHOICES = {  
         "HOSE:AAA": "AAA", "UPCOM:ABB": "ABB", "HOSE:ACB": "ACB", "HOSE:AMD": "AMD", "HNX:ART": "ART", 
-        "UPCOM:BSR": "BSR",
+        "HNX:BLF": "BLF", "UPCOM:BSR": "BSR",
         "HNX:DST": "DST", "UPCOM:DPS": "DPS", 
         "HOSE:FPT": "FPT", 
         "HOSE:HAI": "HAI", "HOSE:HPG": "HPG", 
-        "HNX:KLF": "KLF", 
-        "HOSE:TCB": "TCB", "HOSE:TCH": "TCH", "HOSE:TTB": "TTB",
+        "HNX:ITQ": "ITQ",
+        "UPCOM:KAC": "KAC", "HNX:KLF": "KLF", "HNX:KSQ": "KSQ",
+        "HOSE:TCB": "TCB", "HOSE:TCH": "TCH", "HOSE:TTB": "TTB", "UPCOM:TS4": "TS4",
         "HOSE:MHC": "MHC",
         "HNX:NBC": "NBC","HOSE:NKG": "NKG",   
         "HOSE:ROS": "ROS", 
-        "UPCOM:SBS": "SBS", "UPCOM:S12": "S12",
-        "HOSE:PVD": "PVD", "HOSE:PVT": "PVT", 
-        "HOSE:QBS": "QBS"}
+        "UPCOM:S12": "S12", "UPCOM:SBS": "SBS", "UPCOM:STL": "STL",
+        "UPCOM:PLO": "PLO", "UPCOM:PNT": "PNT", "HOSE:PVD": "PVD", "HOSE:PVT": "PVT", "UPCOM:PVR": "PVR", 
+        "HOSE:QBS": "QBS",
+        "HNX:VE1": "VE1", "UPCOM:VHG": "VHG", "UPCOM:VPC": "VPC",}
     
     col01, col02 = st.columns(2)
     with col01:
@@ -45,18 +47,18 @@ def app():
         <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/{newstock}/" rel="noopener" target="_blank"><span class="blue-text">{newstock} Price Today</span></a> by TradingView</div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
         {{
         "symbol": "{stock}",
-        "width": 1000,
-        "locale": "{language}",
+        "width": 500,
         "colorTheme": "light",
-        "isTransparent": false
+        "isTransparent": false,
+        "locale": "{language}"
         }}
         </script>
         </div>
         <!-- TradingView Widget END -->
-        """, width=1100, height=270)
+        """, width=520)
     else:
         #chart
         components.html(f"""
