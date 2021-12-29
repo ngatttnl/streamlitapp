@@ -3,17 +3,22 @@ import streamlit as st
 import pandas as pd
 import streamlit.components.v1 as components
 from PIL import Image
+from apps.db import view_all, get_stockname
 
 
 
 def app():
-    df = pd.read_csv('vnstocks.csv', delimiter=',', header=None, skiprows=1, names=['value','name'])
+    #df = pd.read_csv('vnstocks.csv', delimiter=',', header=None, skiprows=1, names=['value','name'])
+    df = pd.DataFrame(get_stockname(), columns=['name', 'exchange'])
     df = df.sort_values(by=['name']) 
-    stocks = df.set_index(['value'])['name'].to_dict()
+    #names = df['exchange'].tolist()
+    #print(df)
+    #df = df.sort_values(by=['name']) 
+    stocks = df.set_index(['exchange'])['name'].to_dict()
     
     col01, col02 = st.columns(2)
     with col01:
-        stock = st.selectbox('Select', options=stocks.keys(), format_func=lambda x:stocks[ x ])
+        stock = st.selectbox('Select', options=stocks, format_func=lambda x:stocks[ x ])
         
     with col02:
         st.write("Click here if the page doesn't refresh")
