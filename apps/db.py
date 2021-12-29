@@ -45,4 +45,8 @@ def delete(name):
 	c.execute('DELETE FROM stock WHERE name="{}"'.format(name))
 	conn.commit()
 
+def edit(name, exchange):
+	c.execute('UPDATE stock set value ="{}" WHERE name="{}"'.format(exchange, name))
+	conn.commit()
+
 
