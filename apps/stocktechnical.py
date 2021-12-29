@@ -9,11 +9,11 @@ from apps.db import view_all, get_stockname
 
 def app():
     #df = pd.read_csv('vnstocks.csv', delimiter=',', header=None, skiprows=1, names=['value','name'])
-    df = pd.DataFrame(get_stockname(), columns=['name', 'exchange'])
-    df = df.sort_values(by=['name']) 
     #names = df['exchange'].tolist()
     #print(df)
     #df = df.sort_values(by=['name']) 
+    df = pd.DataFrame(get_stockname(), columns=['name', 'exchange'])
+    df = df.sort_values(by=['name']) 
     stocks = df.set_index(['exchange'])['name'].to_dict()
     
     col01, col02 = st.columns(2)

@@ -42,9 +42,9 @@ def app():
         delete_by_name = st.selectbox("Unique name", unique_names)
         new_df = clean_db
         st.warning("You can't delete stocks now!")
-        if st.button("Delete Wrong stocks"):
+        """if st.button("Delete Wrong stocks"):
             delete_wrong()
-            st.warning("Deleted: '{}'")
+            st.warning("Deleted: '{}'")"""
 
         """if st.button("Delete"):
             delete(delete_by_name)
