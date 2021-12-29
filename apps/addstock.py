@@ -66,13 +66,13 @@ def app():
         
         new_df = clean_db
         st.warning("You can't delete stocks now!")
-        """if st.button("Delete Wrong stocks"):
-            delete_wrong()
-            st.warning("Deleted: '{}'")"""
-
         """if st.button("Delete"):
             delete(name)
             st.warning("Deleted: '{}'".format(name))"""
+
+        """if st.button("Delete Wrong stocks"):
+            delete_wrong()
+            st.warning("Deleted: '{}'")"""
         
         
         
