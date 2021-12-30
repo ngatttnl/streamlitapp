@@ -25,7 +25,8 @@ def app():
                     else:
                         st.warning("Name of stock is not empty!")
                 except:
-                    st.warning("The stock already exists")"""
+                    st.warning("The stock already exists")
+                """
                 st.warning("You can't add stocks now!")
                 
         st.subheader("Vietnamese Stocks")

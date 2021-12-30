@@ -51,6 +51,7 @@ def app():
         """, width=520)
     else:
         #chart
+       
         components.html(f"""
             <!-- TradingView Widget BEGIN -->
         <!-- TradingView Widget BEGIN -->
