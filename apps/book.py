@@ -12,7 +12,7 @@ def app():
     if "tab" in query_params:
         active_tab = query_params["tab"][0]
     else:
-        active_tab = "Marubozu_Spinning"
+        active_tab = "Candlestick"
 
     if active_tab not in tabs:
         st.experimental_set_query_params(tab="Candlestick")
@@ -76,6 +76,7 @@ def app():
         st.markdown(text2, unsafe_allow_html=True)
         st.write("Các bạn có thể nghe nội dung trên trong video sau:")
         components.iframe("""https://www.youtube.com/embed/C9p19zOgrlo?list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ""" , scrolling = True , height = 500) 
+    
     elif active_tab == "Marubozu_Spinning":
         text = "<div class='row'><h3>Nến cường lực Marubozu</h3>\
             <p><strong>Nến Marubozu</strong> có tên gọi khác là nến cường lực. Đặc điểm của nó là thân nến rất dài giá mở cửa và giá đóng cửa cách xa nhau và không có bóng nến trên hoặc dưới, hoặc nếu có bóng nến trên hoặc dưới thì cũng không đáng kể. \
