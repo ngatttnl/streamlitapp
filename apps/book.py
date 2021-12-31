@@ -3,35 +3,9 @@ import streamlit.components.v1 as components
 from PIL import Image
 
 def app():
-   
-    query_params = st.experimental_get_query_params()
     tabs = ["Candlestick", "Marubozu_Spinning", "Hammer"]
-    if "tab" in query_params:
-        active_tab = query_params["tab"][0]
-    else:
-        active_tab = "Candlestick"
-
-    if active_tab not in tabs:
-        st.experimental_set_query_params(tab="Candlestick")
-        active_tab = "Candlestick"
-
-    li_items = "".join(
-        f"""
-        <li class="nav-item">
-            <a class="nav-link{' active' if t==active_tab else ''}" href="/?tab={t}">{t}</a>
-        </li>
-        """
-        for t in tabs
-    )
-    tabs_html = f"""
-        <ul class="nav nav-tabs">
-        {li_items}
-        </ul>
-    """
-
-    st.markdown(tabs_html, unsafe_allow_html=True)
-    st.markdown("<br>", unsafe_allow_html=True)
-    print("here: " + active_tab)
+    active_tab = st.selectbox("Select a topic", tabs)
+    
     if active_tab == "Candlestick":
         text = "<div class='row'><h3>Giới thiệu về nến Nhật</h3>\
             <p>Mô hình nến Nhật candlesticks là một phương pháp phân tích kỹ thuật được người Nhật phát minh vào những năm 1600. Sau này được Steven Nison phát triển và phổ biến phương pháp phân tích này trên toàn thế giới, được ứng dụng rộng rãi trong phân tích kỹ thuật ngày nay.</p> \
@@ -71,7 +45,7 @@ def app():
             Đây là những đặc điểm hết sức quan trọng mà chúng ta phải biết để vận dụng vào việc phân tích các mẫu hình nến đảo chiều sau này.</p>\
             Nguồn: tham khảo từ website <a href='https://chungkhoanviet.net'>Chứng khoán Việt</div>"
         st.markdown(text2, unsafe_allow_html=True)
-        st.write("Các bạn có thể nghe nội dung trên trong video sau:")
+        st.write("")
         st.video("https://www.youtube.com/watch?v=C9p19zOgrlo&list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ&index=2")
         #components.iframe("""https://www.youtube.com/embed/C9p19zOgrlo?list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ""" , scrolling = True , height = 500) 
     
@@ -111,7 +85,11 @@ def app():
         #components.iframe("""https://www.youtube.com/embed/RVunoQBwHng?list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ""" , scrolling = True , height = 500) 
     elif active_tab == "Hammer":
         text1 = "<div class='row'><h3>Nến búa Hammer</h3>\
-            Working on it" 
+        <p>Nến hammer là một trong những mẫu nến đảo chiều quan trọng, thường xuất hiện ở đáy của <strong>một xu hướng giảm giá</strong>. \
+        Nó có thể là nến xanh hay đỏ nhưng nó đều có đặc điểm chung là thân nến nhỏ và bóng dưới rất dài thường gấp hơn 2 lần độ dài thân nến.</p>\
+        <p>Trong mẫu nến hammer bóng dưới càng dài, bóng trên càng ngắn, thân của nến càng nhỏ càng có ý nghĩa <strong>tăng giá</strong>. Mặc dù thân của nến hammer có thể màu xanh hay đỏ, mức độ tăng giá sẽ đáng kể hơn nếu thân của hammer màu xanh. \
+        <ul><li>Nếu thân của nến búa hammer màu xanh nó mang ý nghĩa rõ ràng rằng thị trường bị bán tháo gần như suốt phiên và sau đó bật tăng trở lại và lúc đóng cửa với giá cao nhất trong phiên. \
+        Đó gần như là dấu hiệu của sự tăng giá. </li><li>Nếu thân của hammer màu đỏ, nó thể hiện rằng giá đóng cửa thấp hơn mức giá mở cửa hàm ý rằng <strong>mức độ tăng giá yếu hơn</strong>.</li></p>"
             
         col0, col1= st.columns(2)
         with col0:
@@ -120,7 +98,26 @@ def app():
             st.header("")
             st.header("")
             image = Image.open('images/hammer.jpg')
-            st.image(image, caption="Nến búa Hammer", width=500)    
+            st.image(image, caption="Nến búa Hammer", width=500)  
+
+        text2 = "<div class='row'><h3>Nến búa ngược Inverted Hammer</h3>\
+            <p>Nến Inverted hammer hay còn gọi là <strong>Nến búa ngược</strong>, là một mẫu hình nến đảo chiều xuất hiện ở đáy của <strong>một xu hướng giảm</strong>. Về hình dạng nó ngược lại với nến Hammer với đầu búa nằm ở dưới và bóng trên rất dài.</p> \
+            <p>Đặc điểm của nến búa ngược là <strong>thân nến nhỏ</strong>, bóng dưới không có hoặc nhỏ, bóng trên rất dài thường gấp 2 lần chiều dài thân nến. \
+            Mẫu hình này thường xuất hiện ở <strong>đáy của một xu hướng giảm giá</strong> và là cảnh báo về khả năng <strong>giá có khả năng đảo chiều tăng trở lại</strong>.</p> \
+            <p>Mẫu hình này không phải là dấu hiệu chắc chắn của một sự đảo chiều mà ta cần phải kết hợp thêm với các cây nến tạo thành một tổ hợp nến đảo chiều \
+            hoặc kết hợp với một số chỉ báo kỹ thuật khác như các đường xu hướng, MA, MACD, Bollinger band…, để xác nhận về khả năng đảo chiều của giá.</p> \
+        "
+            
+        col0, col1= st.columns(2)
+        with col0:
+            st.markdown(text2, unsafe_allow_html=True)
+        with col1:
+            st.header("")
+            st.header("")
+            image = Image.open('images/inverted-hammer.jpg')
+            st.image(image, caption="Nến búa ngược Inverted Hammer", width=500)    
+        st.video("https://www.youtube.com/watch?v=5eFblK8iTJ8&list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ&index=3")
+        
     elif active_tab == "Contact":
         st.write("If you'd like to contact me, then please don't.")
     else:

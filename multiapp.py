@@ -78,7 +78,7 @@ class MultiApp:
                     <a class="nav-link" href="https://www.linguar.com" target="_blank">Học ngoại ngữ</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" href="http://thanhnga.tk" target="_blank">My Wordpress website</a>
+                    <a class="nav-link" href="http://thanhnga.tk" target="_blank">My website</a>
                     </li>
                 </ul>
             </div>
