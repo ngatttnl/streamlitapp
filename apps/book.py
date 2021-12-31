@@ -3,10 +3,7 @@ import streamlit.components.v1 as components
 from PIL import Image
 
 def app():
-    st.markdown(
-    '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">',
-    unsafe_allow_html=True,
-    )
+   
     query_params = st.experimental_get_query_params()
     tabs = ["Candlestick", "Marubozu_Spinning", "Hammer"]
     if "tab" in query_params:
@@ -75,7 +72,8 @@ def app():
             Nguồn: tham khảo từ website <a href='https://chungkhoanviet.net'>Chứng khoán Việt</div>"
         st.markdown(text2, unsafe_allow_html=True)
         st.write("Các bạn có thể nghe nội dung trên trong video sau:")
-        components.iframe("""https://www.youtube.com/embed/C9p19zOgrlo?list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ""" , scrolling = True , height = 500) 
+        st.video("https://www.youtube.com/watch?v=C9p19zOgrlo&list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ&index=2")
+        #components.iframe("""https://www.youtube.com/embed/C9p19zOgrlo?list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ""" , scrolling = True , height = 500) 
     
     elif active_tab == "Marubozu_Spinning":
         text = "<div class='row'><h3>Nến cường lực Marubozu</h3>\
@@ -109,7 +107,8 @@ def app():
             st.header("")
             image = Image.open('images/spinning.jpg')
             st.image(image, caption="Nến con quay Spinning top", width=500) 
-        components.iframe("""https://www.youtube.com/embed/RVunoQBwHng?list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ""" , scrolling = True , height = 500) 
+        st.video("https://www.youtube.com/watch?v=RVunoQBwHng&list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ&index=2")
+        #components.iframe("""https://www.youtube.com/embed/RVunoQBwHng?list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ""" , scrolling = True , height = 500) 
     elif active_tab == "Hammer":
         text1 = "<div class='row'><h3>Nến búa Hammer</h3>\
             Working on it" 
