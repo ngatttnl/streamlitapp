@@ -1,11 +1,11 @@
 import streamlit as st
 from multiapp import MultiApp
-from apps import addstock, binancescreener, home, coinmarket, datadownload, crypto, gainer, binanceprice, stocktechnical #, speech, avatar # import your app modules here
+from apps import book, addstock, binancescreener, home, coinmarket, datadownload, crypto, gainer, binanceprice, stocktechnical #, speech, avatar # import your app modules here
 
 app = MultiApp()
 
 # Add all your application here
-
+app.add_app("Learning", book.app)
 app.add_app("VN Stock Screener", home.app)
 app.add_app("VN Stock Technical", stocktechnical.app)
 app.add_app("VN Stock Gainers / Losers", gainer.app)
