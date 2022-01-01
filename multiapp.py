@@ -52,22 +52,17 @@ class MultiApp:
         if 'key' not in st.session_state:
             st.session_state['key'] = 'en'
         st.session_state['key'] = st.sidebar.selectbox("Select language", languages.keys(), format_func=lambda x:languages[ x ])
-        
-        st.markdown(
-            f"""
+        expand_menu = f"""
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-            <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #3498DB;">
             <a class="navbar-brand" href="https://thanhnga.herokuapp.com" target="_blank">Thanh Nga</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav" style="scroll-behavior: auto;">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                    <a class="nav-link disabled" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
                     <a class="nav-link" href="http://khuonchauthanhphuc.tk" target="_blank">Khuôn chậu Thanh Phúc</a>
                     </li>
@@ -82,23 +77,36 @@ class MultiApp:
                     </li>
                 </ul>
             </div>
-        </nav>
-            """, unsafe_allow_html=True)
-            
+            </nav>
+            """
+        #st.markdown(expand_menu, unsafe_allow_html=True)
+        components.html(expand_menu, height=150, scrolling=True)
+         
         hide_menu_style = """
                 <style>
                 #MainMenu {visibility: hidden;}
 
-                .sidebar .sidebar-content {{
-                        width: 200px;
-                    }}
                 </style>
                 """
         st.markdown(hide_menu_style, unsafe_allow_html=True)
         
+        PINNED_NAV_STYLE = """
+            <style>
+            .reportview-container .sidebar-content {
+                padding-top: 0rem;
+
+            }
+            .reportview-container .main .block-container {
+                padding-top: 0rem;
+                padding-right: 3rem;
+                padding-left: 3rem;
+                padding-bottom: 0rem;
+            }
+            </style>
+        """
+        st.markdown(PINNED_NAV_STYLE,unsafe_allow_html=True)
         #app = st.selectbox(     
       
-        
         app = st.sidebar.radio(
             'Navigation',
             self.apps,
