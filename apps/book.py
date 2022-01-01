@@ -24,12 +24,9 @@ def app():
             <li><strong>Giá thấp nhất</strong>: là mức giá khớp lệnh thấp nhất trong phiên giao dịch</li>\
             </ul>"
         st.markdown(text, unsafe_allow_html=True)
-        col0, col1= st.columns([1, 1])
-        with col0:
-            st.markdown(text1, unsafe_allow_html=True)
-        with col1:
-            image = Image.open('images/nenNhat.jpg')
-            st.image(image, use_column_width='always')
+        st.markdown(text1, unsafe_allow_html=True)
+        image = Image.open('images/nenNhat.jpg')
+        st.image(image, use_column_width='always')
         text2 = "<p>Hình vẽ bên thể hiện một mô hình nến Nhật tiêu chuẩn, mỗi một cây nến biểu thị cho mức độ dao động giá trong một phiên giao dịch. Một cây <strong>nến xanh</strong> được hình thành khi mức <em>giá đóng cửa</em> <strong>cao hơn</strong> mức <em>giá mở cửa</em> của phiên giao dịch đó. \
             Ngược lại, một cây <strong>nến đỏ</strong> được hình thành khi có <em>giá đóng cửa</em> <strong>thấp hơn</strong> <em> giá mở cửa</em>.</p>\
             <p>Một cây nến tiêu chuẩn bao gồm 3 thành phần:</p><ul>\
@@ -57,14 +54,9 @@ def app():
             <p><strong>Nến Marubozu</strong> thể hiện lực mua và bán rất mạnh, thường xuất hiện khi giá tăng hoặc giảm giá mạnh hoặc khi lực mua hoặc bán tăng đột biến. Điều này cho thấy trong quá trình mua bán không có sự do dự của nhà đầu tư khi mua hoặc bán. \
             Khi 3 cây nến Marubozu cùng màu xuất hiện liên tiếp chúng báo hiệu thị trường trong xu hướng tăng (nến xanh) hoặc giảm giá rất mạnh (nến đỏ). Khi ba cây nến Marubozu xanh hoặc đỏ xuất hiện liên tiếp nhau chúng tạo thành một hình mẫu người ta gọi là ba người lính trắng (nến xanh) hoặc 3 con quạ đen (nến đỏ) \
             <p><strong>Nến Marubozu</strong> thường hay xuất hiện trên đồ thị giá khi có thông tin bất ngờ xuất hiện làm xuất hiện một lực cầu (tin cực tốt) hoặc lực cung (tin cực xấu) xuất hiện trên thị trường sẽ làm cho giá đóng cửa ở mức giá cao nhất hoặc thấp nhất trong ngày.</p>"
-        col0, col1= st.columns([1, 1])
-        with col0:
-            st.markdown(text, unsafe_allow_html=True)
-        with col1:
-            st.header("")
-            st.header("")
-            image = Image.open('images/marubozu.jpg')
-            st.image(image, caption="Nến cường lực Marubozu", use_column_width='always')
+        st.markdown(text, unsafe_allow_html=True)
+        image = Image.open('images/marubozu.jpg')
+        st.image(image, caption="Nến cường lực Marubozu", use_column_width='always')
         text1 = "<div class='row'><h3>Nến con quay Spinning top</h3>\
             <p><strong>Nến spinning top</strong> hay còn gọi là <strong>nến con quay</strong> vì hình dáng của nó. Đặc điểm dễ nhận biết của nến spinning top là bóng trên và dưới rất dài, thân nến ngắn do chênh lệch giữa giá mở cửa và giá đóng cửa không cao.\
             Trong phiên giao dịch có lúc lực cầu và cung mạnh đẩy giá nên mức cao (bóng trên) và ép giá xuống thấp (bóng dưới).\
@@ -74,14 +66,10 @@ def app():
             Do đó, cần phải xem xét các cây nến xung quanh nó xem nó có tạo thành một tổ hợp nến đảo chiều hay không \
             hoặc kết hợp với các chỉ báo khác để phán đoán một cách chính xác đường đi sắp tới của giá.</p>" 
             
-        col0, col1= st.columns([1, 1])
-        with col0:
-            st.markdown(text1, unsafe_allow_html=True)
-        with col1:
-            st.header("")
-            st.header("")
-            image = Image.open('images/spinning.jpg')
-            st.image(image, caption="Nến con quay Spinning top", use_column_width='always') 
+        st.markdown(text1, unsafe_allow_html=True)
+       
+        image = Image.open('images/spinning.jpg')
+        st.image(image, caption="Nến con quay Spinning top", use_column_width='always') 
         st.video("https://www.youtube.com/watch?v=RVunoQBwHng&list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ&index=2")
         #components.iframe("""https://www.youtube.com/embed/RVunoQBwHng?list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ""" , scrolling = True , height = 500) 
     elif active_tab == "Hammer":
@@ -92,14 +80,10 @@ def app():
         <ul><li>Nếu thân của nến búa hammer màu xanh nó mang ý nghĩa rõ ràng rằng thị trường bị bán tháo gần như suốt phiên và sau đó bật tăng trở lại và lúc đóng cửa với giá cao nhất trong phiên. \
         Đó gần như là dấu hiệu của sự tăng giá. </li><li>Nếu thân của hammer màu đỏ, nó thể hiện rằng giá đóng cửa thấp hơn mức giá mở cửa hàm ý rằng <strong>mức độ tăng giá yếu hơn</strong>.</li></p>"
             
-        col0, col1= st.columns([1, 1])
-        with col0:
-            st.markdown(text1, unsafe_allow_html=True)
-        with col1:
-            st.header("")
-            st.header("")
-            image = Image.open('images/hammer.jpg')
-            st.image(image, caption="Nến búa Hammer", use_column_width='always')  
+        st.markdown(text1, unsafe_allow_html=True)
+        
+        image = Image.open('images/hammer.jpg')
+        st.image(image, caption="Nến búa Hammer", use_column_width='always')  
 
         text2 = "<div class='row'><h3>Nến búa ngược Inverted Hammer</h3>\
             <p>Nến Inverted hammer hay còn gọi là <strong>Nến búa ngược</strong>, là một mẫu hình nến đảo chiều xuất hiện ở đáy của <strong>một xu hướng giảm</strong>. Về hình dạng nó ngược lại với nến Hammer với đầu búa nằm ở dưới và bóng trên rất dài.</p> \
@@ -109,14 +93,10 @@ def app():
             hoặc kết hợp với một số chỉ báo kỹ thuật khác như các đường xu hướng, MA, MACD, Bollinger band…, để xác nhận về khả năng đảo chiều của giá.</p> \
         "
             
-        col0, col1= st.columns([1, 1])
-        with col0:
-            st.markdown(text2, unsafe_allow_html=True)
-        with col1:
-            st.header("")
-            st.header("")
-            image = Image.open('images/inverted-hammer.jpg')
-            st.image(image, caption="Nến búa ngược Inverted Hammer", use_column_width='always')    
+        st.markdown(text2, unsafe_allow_html=True)
+        
+        image = Image.open('images/inverted-hammer.jpg')
+        st.image(image, caption="Nến búa ngược Inverted Hammer", use_column_width='always')    
         st.video("https://www.youtube.com/watch?v=5eFblK8iTJ8&list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ&index=3")
         
     elif active_tab == "Contact":

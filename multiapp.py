@@ -42,19 +42,52 @@ class MultiApp:
         print("get: " + self.language)
         return self.language
     def run(self):
-        st.set_page_config(
-        page_title="Investing world",
-        page_icon="🧊",
-        layout="wide",
-        initial_sidebar_state="expanded")
+        
         
         languages = {"vi_VN": "Việt Nam", "en": "English", "de_DE": "Deutsch"}
         if 'key' not in st.session_state:
             st.session_state['key'] = 'en'
         st.session_state['key'] = st.sidebar.selectbox("Select language", languages.keys(), format_func=lambda x:languages[ x ])
-       
-        ex_menu = """
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        css_res = """
+            <style>
+                @media screen and (max-width: 1000px) {
+                    .wrapMenuHeader .btnBurger {
+                        display: flex;
+                    }
+
+                    .wrapMenuHeader .wrapLogoMenu {
+                        display: flex;
+                        height: auto;
+                        align-items: flex-start;
+                        gap: 0px;
+                        flex-direction: column;
+                        max-height: 30px;
+                        overflow: hidden;
+                        transition: all .2s;
+                        -webkit-transition: all .2s;
+                        -moz-transition: all .2s;
+                        -ms-transition: all .2s;
+                        -o-transition: all .2s;
+                    }
+                    
+                    .wrapMenuHeader .wrapMenu {
+                        flex-direction:column;
+                        gap: 0px;
+                        width: 100%;
+                        margin-top: 10px;
+                    }
+                    
+                    .wrapMenuHeader .wrapMenu .MenuLink {
+                        width: 100%;
+                        display: flex;
+                        padding-top: 8px;
+                        padding-bottom: 8px;
+                    }
+                }
+            </style>
+        """
+        st.markdown(css_res, unsafe_allow_html=True)
+        css_menu="""
             <style>
                 .wrapMenuHeader,
                 .wrapMenuHeader * {
@@ -139,41 +172,13 @@ class MultiApp:
                     -o-transition: all .5s;
                 }
 
-                @media screen and (max-width: 1000px) {
-                    .wrapMenuHeader .btnBurger {
-                        display: flex;
-                    }
-
-                    .wrapMenuHeader .wrapLogoMenu {
-                        display: flex;
-                        height: auto;
-                        align-items: flex-start;
-                        gap: 0px;
-                        flex-direction: column;
-                        max-height: 30px;
-                        overflow: hidden;
-                        transition: all .2s;
-                        -webkit-transition: all .2s;
-                        -moz-transition: all .2s;
-                        -ms-transition: all .2s;
-                        -o-transition: all .2s;
-                    }
-                    
-                    .wrapMenuHeader .wrapMenu {
-                        flex-direction:column;
-                        gap: 0px;
-                        width: 100%;
-                        margin-top: 10px;
-                    }
-                    
-                    .wrapMenuHeader .wrapMenu .MenuLink {
-                        width: 100%;
-                        display: flex;
-                        padding-top: 8px;
-                        padding-bottom: 8px;
-                    }
-                }
+                
                 </style>
+        """
+        st.markdown(css_menu, unsafe_allow_html=True)
+        ex_menu = """
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            
             <div class="wrapMenuHeader">
                 <input type="checkbox" hidden id="collapseMenuMoile">
                 <div class="wrapLogoMenu">
@@ -237,19 +242,22 @@ class MultiApp:
             </div>
             </nav>
             """
-        #st.markdown(ex_menu, unsafe_allow_html=True)
-        components.html(ex_menu, height=120, scrolling=True)
+        #st.markdown(expand_menu, unsafe_allow_html=True)
+        #components.html(expand_menu, height=100, scrolling=True)
          
         hide_menu_style = """
                 <style>
                 #MainMenu {visibility: hidden;}
-
+                #stsidebar
                 </style>
                 """
         st.markdown(hide_menu_style, unsafe_allow_html=True)
         
         PINNED_NAV_STYLE = """
             <style>
+            .sidebar{
+                padding-top: 50rem;
+            }
             .reportview-container .sidebar-content {
                 padding-top: 0rem;
 
