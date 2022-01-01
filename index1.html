@@ -1,0 +1,106 @@
+
+<html lang="en">
+    <head>
+      <title>Bootstrap Example</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col" style="background-color:lavender;">.col</div>
+              <div class="col" style="background-color:orange;">
+                <p>Giới thiệu về nến Nhật
+                    Mô hình nến Nhật candlesticks là một phương pháp phân tích kỹ thuật được người Nhật phát minh vào những năm 1600. Sau này được Steven Nison phát triển và phổ biến phương pháp phân tích này trên toàn thế giới, được ứng dụng rộng rãi trong phân tích kỹ thuật ngày nay.
+                    
+                    Để hiểu về đồ thị nến Nhật, trước tiên ta bắt đầu từ các mức giá giao dịch. Mức giá là sự thể hiện mối liên hệ giữa người mua và người bán. Đó là giá trị mà tại đó một người muốn mua và một người muốn bán. Việc mua bán dựa trên sự mong đợi của họ vào biến động giá cả trong tương lai. Nếu họ mong đợi trong tương lai giá sẽ tăng thì họ sẽ sẵn sàng mua vào và ngược lại họ sẽ bán ra.
+                    
+                    Trong thực tế trong giao dịch chứng khoán thì thời gian có thể là 1 phút, 1 giờ, 1 ngày, 1 tuần hay 1 tháng,... tùy theo người sử dụng đồ thị chọn thời gian phân tích là phút, giờ, ngày, tuần hay tháng. Ví dụ, nếu người sử dụng chọn đồ thị ngày thì các mức giá được giao dịch trong 1 ngày sẽ tạo thành một cây nến Nhật. Người ta thường gọi chúng với cái tên là nến giờ, nến ngày, nến tuần, nến tháng.
+                    
+                    Cấu tạo của một cây nến Nhật
+                    Trong mô hình nến Nhật các mức giá trong phiên giao dịch có ý nghĩa quan trọng tạo thành một cây nến Nhật. Có 4 mức giá  mà chúng ta cần quan tâm đó là:
+                    
+                    Giá mở cửa (open): là mức giá khớp lệnh đầu tiên trong phiên giao dịch. Trên sàn HOSE, giá mở cửa là mức giá khớp lệnh trong phiên khớp lệnh định kỳ ATO xác định giá mở cửa. Trên sàn HNX, UPCOM là mức giá khớp lệnh đầu tiên trong ngày.
+                    Giá đóng cửa (close): là mức giá giao dịch mua, bán cuối cùng trong phiên giao dịch (ATC) đó là phiên khớp lệnh định kỳ xác định giá đóng cửa. Đây là mức giá có ý nghĩa quan trọng nhất và được sử dụng nhiều nhất trong phân tích kỹ thuật.
+                    Giá cao nhất: là mức giá khớp lệnh cao nhất trong phiên giao dịch
+                    Giá thấp nhất: là mức giá khớp lệnh thấp nhất trong phiên giao dịch
+                    
+                    0
+                    Hình vẽ bên thể hiện một mô hình nến Nhật tiêu chuẩn, mỗi một cây nến biểu thị cho mức độ dao động giá trong một phiên giao dịch. Một cây nến xanh được hình thành khi mức giá đóng cửa cao hơn mức giá mở cửa của phiên giao dịch đó. Ngược lại, một cây nến đỏ được hình thành khi có giá đóng cửa thấp hơn giá mở cửa.
+                    
+                    Một cây nến tiêu chuẩn bao gồm 3 thành phần:
+                    
+                    Bóng trên (hay còn gọi là râu trên)
+                    Thân nến (chỗ phình to)
+                    Bóng dưới (hay còn gọi là râu dưới)
+                    Trong một cây nến xanh khoảng cách giữa giá đóng cửa và mức giá cao nhất trong phiên sẽ tạo thành bóng trên và khoảng cách giữa giá mở cửa và mức giá thấp nhất trong phiên giao dịch sẽ tạo thành bóng dưới.
+                    Trong một cây nến đỏ, khoảng cách giữa giá mở cửa và mức giá cao nhất sẽ tạo thành bóng trên và khoảng cách giữa giá đóng cửa mức giá thấp nhất sẽ tạo thành bóng dưới.
+                    Thân nến được hình thành trong phạm vi mức giá mở cửa và mức giá đóng cửa của phiên giao dịch. Nếu giá đóng cửa và giá mở cửa cách xa nhau sẽ tạo thành một thân nến lớn và ngược lại sẽ tạo thành một thân nến nhỏ.
+                     
+                    Một cây nến tiêu chuẩn bao gồm 3 thành phần:
+                    
+                    Bóng trên (hay còn gọi là râu trên)
+                    Thân nến (chỗ phình to)
+                    Bóng dưới (hay còn gọi là râu dưới)
+                    Trong một cây nến xanh khoảng cách giữa giá đóng cửa và mức giá cao nhất trong phiên sẽ tạo thành bóng trên và khoảng cách giữa giá mở cửa và mức giá thấp nhất trong phiên giao dịch sẽ tạo thành bóng dưới.
+                    Trong một cây nến đỏ, khoảng cách giữa giá mở cửa và mức giá cao nhất sẽ tạo thành bóng trên và khoảng cách giữa giá đóng cửa mức giá thấp nhất sẽ tạo thành bóng dưới.
+                    Thân nến được hình thành trong phạm vi mức giá mở cửa và mức giá đóng cửa của phiên giao dịch. Nếu giá đóng cửa và giá mở cửa cách xa nhau sẽ tạo thành một thân nến lớn và ngược lại sẽ tạo thành một thân nến nhỏ.
+                    
+                    Ý nghĩa của mô hình nến Nhật
+                    Nhìn vào đồ thị hình nến Nhật Bản ta có thể biết được giá cổ phiếu ngày hôm đó có giá mở cửa, đóng cửa, cao nhất, thấp nhất là bao nhiêu. Đối với cổ phiếu chỉ có giá đóng cửa như các cổ phiếu nằm trên sàn chứng khoán Hà nội (HNX) không có phiên khớp lệnh 
+                    Một cây nến tiêu chuẩn bao gồm 3 thành phần:
+                    
+                    Bóng trên (hay còn gọi là râu trên)
+                    Thân nến (chỗ phình to)
+                    Bóng dưới (hay còn gọi là râu dưới)
+                    Trong một cây nến xanh khoảng cách giữa giá đóng cửa và mức giá cao nhất trong phiên sẽ tạo thành bóng trên và khoảng cách giữa giá mở cửa và mức giá thấp nhất trong phiên giao dịch sẽ tạo thành bóng dưới.
+                    Trong một cây nến đỏ, khoảng cách giữa giá mở cửa và mức giá cao nhất sẽ tạo thành bóng trên và khoảng cách giữa giá đóng cửa mức giá thấp nhất sẽ tạo thành bóng dưới.
+                    Thân nến được hình thành trong phạm vi mức giá mở cửa và mức giá đóng cửa của phiên giao dịch. Nếu giá đóng cửa và giá mở cửa cách xa nhau sẽ tạo thành một thân nến lớn và ngược lại sẽ tạo thành một thân nến nhỏ.
+                    
+                    Ý nghĩa của mô hình nến Nhật
+                    Nhìn vào đồ thị hình nến Nhật Bản ta có thể biết được giá cổ phiếu ngày hôm đó có giá mở cửa, đóng cửa, cao nhất, thấp nhất là bao nhiêu. Đối với cổ phiếu chỉ có giá đóng cửa như các cổ phiếu nằm trên sàn chứng khoán Hà nội (HNX) không có phiên khớp lệnh 
+                    Một cây nến tiêu chuẩn bao gồm 3 thành phần:
+                    
+                    Bóng trên (hay còn gọi là râu trên)
+                    Thân nến (chỗ phình to)
+                    Bóng dưới (hay còn gọi là râu dưới)
+                    Trong một cây nến xanh khoảng cách giữa giá đóng cửa và mức giá cao nhất trong phiên sẽ tạo thành bóng trên và khoảng cách giữa giá mở cửa và mức giá thấp nhất trong phiên giao dịch sẽ tạo thành bóng dưới.
+                    Trong một cây nến đỏ, khoảng cách giữa giá mở cửa và mức giá cao nhất sẽ tạo thành bóng trên và khoảng cách giữa giá đóng cửa mức giá thấp nhất sẽ tạo thành bóng dưới.
+                    Thân nến được hình thành trong phạm vi mức giá mở cửa và mức giá đóng cửa của phiên giao dịch. Nếu giá đóng cửa và giá mở cửa cách xa nhau sẽ tạo thành một thân nến lớn và ngược lại sẽ tạo thành một thân nến nhỏ.
+                    
+                    Ý nghĩa của mô hình nến Nhật
+                    Nhìn vào đồ thị hình nến Nhật Bản ta có thể biết được giá cổ phiếu ngày hôm đó có giá mở cửa, đóng cửa, cao nhất, thấp nhất là bao nhiêu. Đối với cổ phiếu chỉ có giá đóng cửa như các cổ phiếu nằm trên sàn chứng khoán Hà nội (HNX) không có phiên khớp lệnh
+                    Ý nghĩa của mô hình nến Nhật
+                    Nhìn vào đồ thị hình nến Nhật Bản ta có thể biết được giá cổ phiếu ngày hôm đó có giá mở cửa, đóng cửa, cao nhất, thấp nhất là bao nhiêu. Đối với cổ phiếu chỉ có giá đóng cửa như các cổ phiếu nằm trên sàn chứng khoán Hà nội (HNX) không có phiên khớp lệnh định kỳ xác định giá mở cửa thì ta lấy mức giá khớp lệnh đầu tiên làm giá mở cửa, hoặc sàn UPCOM không có phiên giao dịch khớp lệnh định kỳ nào thì giá mở cửa là mức giá khớp lệnh đầu tiên và giá đóng cửa là mức giá bình quân của tất cả các mức giá trong phiên giao dịch làm giá đóng cửa. Đây là những đặc điểm hết sức quan trọng mà chúng ta phải biết để vận dụng vào việc phân tích các mẫu hình nến đảo chiều sau này.</p>
+                </div>
+              <div class="col" style="background-color:lavender;">
+                <div class="container" style="position: sticky; top: 0; z-index: 100; height: 100px;">
+            
+                    <h2>My projects</h2>
+                   
+                    <br></br>
+                    
+                    <a href="http://khuonchauthanhphuc.tk" class="btn btn-info" role="button" style="width: 100%">Khuôn chậu Thanh Phúc</a>
+                    <br><br>
+                    
+                    <a href="http://bazancider.tk" class="btn btn-info" role="button" style="width: 100%">Rượu trái cây Bazan</a>
+                    <br><br>
+                
+                    <a href="https://www.linguar.com" class="btn btn-info" role="button" style="width: 100%">Học ngoại ngữ</a>
+                    <br><br>
+                
+                    <a href="http://thanhnga.tk" class="btn btn-info" role="button" style="width: 100%">My website</a>
+                    <br><br>
+                  
+                </div>
+            </div>
+            </div>
+          </div>
+
+
+</body>
+</html>

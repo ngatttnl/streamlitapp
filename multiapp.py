@@ -42,7 +42,7 @@ class MultiApp:
         print("get: " + self.language)
         return self.language
     def run(self):
-        
+        st.set_page_config(layout="wide")
         
         languages = {"vi_VN": "Việt Nam", "en": "English", "de_DE": "Deutsch"}
         if 'key' not in st.session_state:
@@ -86,7 +86,7 @@ class MultiApp:
                 }
             </style>
         """
-        st.markdown(css_res, unsafe_allow_html=True)
+        #st.markdown(css_res, unsafe_allow_html=True)
         css_menu="""
             <style>
                 .wrapMenuHeader,
@@ -175,7 +175,7 @@ class MultiApp:
                 
                 </style>
         """
-        st.markdown(css_menu, unsafe_allow_html=True)
+        #st.markdown(css_menu, unsafe_allow_html=True)
         ex_menu = """
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
             
@@ -219,6 +219,7 @@ class MultiApp:
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            
             <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #3498DB;">
             <a class="navbar-brand" href="https://thanhnga.herokuapp.com" target="_blank">Thanh Nga</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -243,7 +244,7 @@ class MultiApp:
             </nav>
             """
         #st.markdown(expand_menu, unsafe_allow_html=True)
-        #components.html(expand_menu, height=100, scrolling=True)
+        components.html(expand_menu, height=120, scrolling=True)
          
         hide_menu_style = """
                 <style>
