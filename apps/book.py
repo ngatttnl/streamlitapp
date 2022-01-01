@@ -30,7 +30,7 @@ def app():
         with col1:
             image = Image.open('images/nenNhat.jpg')
             st.image(image, use_column_width='always')
-        text2 = "<p>Hình vẽ bên trên thể hiện một mô hình nến Nhật tiêu chuẩn, mỗi một cây nến biểu thị cho mức độ dao động giá trong một phiên giao dịch. Một cây <strong>nến xanh</strong> được hình thành khi mức <em>giá đóng cửa</em> <strong>cao hơn</strong> mức <em>giá mở cửa</em> của phiên giao dịch đó. \
+        text2 = "<p>Hình vẽ bên thể hiện một mô hình nến Nhật tiêu chuẩn, mỗi một cây nến biểu thị cho mức độ dao động giá trong một phiên giao dịch. Một cây <strong>nến xanh</strong> được hình thành khi mức <em>giá đóng cửa</em> <strong>cao hơn</strong> mức <em>giá mở cửa</em> của phiên giao dịch đó. \
             Ngược lại, một cây <strong>nến đỏ</strong> được hình thành khi có <em>giá đóng cửa</em> <strong>thấp hơn</strong> <em> giá mở cửa</em>.</p>\
             <p>Một cây nến tiêu chuẩn bao gồm 3 thành phần:</p><ul>\
             <li>Bóng trên (hay còn gọi là râu trên)</li>\

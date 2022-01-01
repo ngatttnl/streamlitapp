@@ -52,6 +52,45 @@ class MultiApp:
         if 'key' not in st.session_state:
             st.session_state['key'] = 'en'
         st.session_state['key'] = st.sidebar.selectbox("Select language", languages.keys(), format_func=lambda x:languages[ x ])
+        ex_menu = f"""
+            
+            <div class="wrapMenuHeader">
+                <input type="checkbox" hidden id="collapseMenuMoile">
+                <div class="wrapLogoMenu">
+                    
+                    <a href="http://thanhnga.tk" class="logoName">
+                        Thanh Nga
+                    </a>
+
+                    <ul class="wrapMenu">
+                        <li class="menuItem">
+                            <a href="http://khuonchauthanhphuc.tk" class="MenuLink">
+                                Khuôn chậu Thanh Trúc
+                            </a>
+                        </li>    
+                        <li class="menuItem">
+                            <a href="http://bazancider.tk" class="MenuLink">
+                                Rượu trái cây Bazan
+                            </a>
+                        </li>    
+                        <li class="menuItem">
+                            <a href="https://www.linguar.com" class="MenuLink">
+                                Học ngoại ngữ
+                            </a>
+                        </li>    
+                        <li class="menuItem">
+                            <a href="http://thanhnga.tk" class="MenuLink">
+                                My website
+                            </a>
+                        </li>            
+                    </ul>
+                </div>
+
+                <label for="collapseMenuMoile" class="btnBurger">
+                    <i class="fas fa-bars"></i>
+                </label>
+            </div>
+        """
         expand_menu = f"""
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -79,8 +118,8 @@ class MultiApp:
             </div>
             </nav>
             """
-        #st.markdown(expand_menu, unsafe_allow_html=True)
-        components.html(expand_menu, height=150, scrolling=True)
+        st.markdown(ex_menu, unsafe_allow_html=True)
+        #components.html(ex_menu, height=120, scrolling=True)
          
         hide_menu_style = """
                 <style>
