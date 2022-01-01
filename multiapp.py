@@ -53,7 +53,8 @@ class MultiApp:
             st.session_state['key'] = 'en'
         st.session_state['key'] = st.sidebar.selectbox("Select language", languages.keys(), format_func=lambda x:languages[ x ])
         ex_menu = f"""
-            
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://github.com/ngatttnl/streamlitapp/blob/main/style.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
             <div class="wrapMenuHeader">
                 <input type="checkbox" hidden id="collapseMenuMoile">
                 <div class="wrapLogoMenu">
@@ -118,8 +119,8 @@ class MultiApp:
             </div>
             </nav>
             """
-        st.markdown(ex_menu, unsafe_allow_html=True)
-        #components.html(ex_menu, height=120, scrolling=True)
+        #st.markdown(expand_menu, unsafe_allow_html=True)
+        components.html(ex_menu, height=120, scrolling=True)
          
         hide_menu_style = """
                 <style>
