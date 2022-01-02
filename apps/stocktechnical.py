@@ -133,7 +133,7 @@ def app():
         "underLineColor": "rgba(41, 98, 255, 0.3)",
         "underLineBottomColor": "rgba(41, 98, 255, 0)",
         "isTransparent": false,
-        "autosize": false,
+        "autosize": true,
         "largeChartUrl": ""
         }}
         </script>
