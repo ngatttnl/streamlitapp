@@ -43,7 +43,9 @@ class MultiApp:
         return self.language
     def run(self):
         st.set_page_config(layout="wide")
-        
+        st.write("")
+        st.write("")
+        st.write("")
         languages = {"vi_VN": "Việt Nam", "en": "English", "de_DE": "Deutsch"}
         if 'key' not in st.session_state:
             st.session_state['key'] = 'en'
@@ -230,5 +232,5 @@ class MultiApp:
             'Navigation',
             self.apps,
             format_func=lambda app: app['title'])
-
+        
         app['function']()
