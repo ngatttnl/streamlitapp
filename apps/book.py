@@ -4,7 +4,7 @@ from PIL import Image
 
 def app():
     
-    tabs = ["Candlestick", "Marubozu & Spinning", "Hammer & Inverted Hammer", "Hanging-man & Shooting star", "Doji & Long-Legged Doji", "Dragonfly Doji"]
+    tabs = ["Candlestick", "Marubozu & Spinning", "Hammer & Inverted Hammer", "Hanging-man & Shooting star", "Doji & Long-Legged Doji", "Dragonfly & Gravestone Doji"]
     active_tab = st.selectbox("Select a topic", tabs)
     #active_tab = "Doji"
     if active_tab == "Candlestick":
