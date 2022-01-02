@@ -82,7 +82,7 @@ def app():
 
         with col2:
             image = Image.open('images/marubozu.jpg')
-            st.image(image, caption="Nến cường lực Marubozu")
+            st.image(image, use_column_width=True, caption="Nến cường lực Marubozu")
         with col3:
             st.write("")
 

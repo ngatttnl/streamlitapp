@@ -61,7 +61,11 @@ class MultiApp:
                     text-decoration: none;
                 }
                 .wrapMenuHeader {
-                    width: 100%;
+                    position: fixed;
+                    width: calc(100% - 6rem);
+                    z-index: 100;
+                    top: 0;
+                    left: 3rem;
                     background-color: green;
                     padding-left: 20px;
                     padding-right: 20px;
@@ -69,7 +73,6 @@ class MultiApp:
                     padding-bottom: 15px;
                     display: flex;
                     align-items: center;
-                    position: relative;
                 }
                 .wrapMenuHeader .wrapLogoMenu {
                     display: flex;
@@ -168,7 +171,7 @@ class MultiApp:
                     <ul class="wrapMenu">
                         <li class="menuItem">
                             <a href="http://khuonchauthanhphuc.tk" class="MenuLink" target="_blank">
-                                Khuôn chậu
+                                Khuôn chậu Thanh Phúc
                             </a>
                         </li>    
                         <li class="menuItem">
