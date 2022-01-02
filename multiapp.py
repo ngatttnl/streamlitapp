@@ -43,14 +43,19 @@ class MultiApp:
         return self.language
     def run(self):
         st.set_page_config(layout="wide")
-        st.write("")
-        st.write("")
-        st.write("")
+        #space because of menu
+        menu_div = """
+            <div style="padding-top: 3rem;">
+                &nbsp;
+            </div>
+        """
+        st.markdown(menu_div, unsafe_allow_html=True)
+        #language menu
         languages = {"vi_VN": "Việt Nam", "en": "English", "de_DE": "Deutsch"}
         if 'key' not in st.session_state:
             st.session_state['key'] = 'en'
         st.session_state['key'] = st.sidebar.selectbox("Select language", languages.keys(), format_func=lambda x:languages[ x ])   
-
+        #top-menu
         css_menu="""
             <style>
                 .wrapMenuHeader,

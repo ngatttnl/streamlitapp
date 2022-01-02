@@ -4,11 +4,11 @@ from PIL import Image
 
 def app():
     
-    tabs = ["Candlestick", "Marubozu_Spinning", "Hammer"]
+    tabs = ["Candlestick", "Marubozu_Spinning", "Hammer", "Hanging-man", "Doji"]
     active_tab = st.selectbox("Select a topic", tabs)
-    
+    #active_tab = "Doji"
     if active_tab == "Candlestick":
-        text = "<div class='row'><h3>Giới thiệu về nến Nhật</h3>\
+        text = "<h3>Giới thiệu về nến Nhật</h3>\
             <p>Mô hình nến Nhật candlesticks là một phương pháp phân tích kỹ thuật được người Nhật phát minh vào những năm 1600. Sau này được Steven Nison phát triển và phổ biến phương pháp phân tích này trên toàn thế giới, được ứng dụng rộng rãi trong phân tích kỹ thuật ngày nay.</p> \
             <p>Để hiểu về đồ thị nến Nhật, trước tiên ta bắt đầu từ các mức giá giao dịch. Mức giá là sự thể hiện mối liên hệ giữa người mua và người bán. Đó là giá trị mà tại đó một người muốn mua và một người muốn bán. Việc mua bán dựa trên sự mong đợi của họ vào biến động giá cả trong tương lai. \
             Nếu họ mong đợi trong tương lai giá sẽ tăng thì họ sẽ sẵn sàng mua vào và ngược lại họ sẽ bán ra.</p>\
@@ -67,7 +67,7 @@ def app():
         #components.iframe("""https://www.youtube.com/embed/C9p19zOgrlo?list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ""" , scrolling = True , height = 500) 
     
     elif active_tab == "Marubozu_Spinning":
-        text = "<div class='row'><h3>Nến cường lực Marubozu</h3>\
+        text = "<h3>Nến cường lực Marubozu</h3>\
             <p><strong>Nến Marubozu</strong> có tên gọi khác là nến cường lực. Đặc điểm của nó là thân nến rất dài giá mở cửa và giá đóng cửa cách xa nhau và không có bóng nến trên hoặc dưới, hoặc nếu có bóng nến trên hoặc dưới thì cũng không đáng kể. \
             Điều đó đồng nghĩa với việc giá cao nhất và giá thấp nhất trùng với giá mở cửa và giá đóng cửa của cây nến.</p>\
             <p><strong>Nến Marubozu</strong> thể hiện lực mua và bán rất mạnh, thường xuất hiện khi giá tăng hoặc giảm giá mạnh hoặc khi lực mua hoặc bán tăng đột biến. Điều này cho thấy trong quá trình mua bán không có sự do dự của nhà đầu tư khi mua hoặc bán. \
@@ -111,7 +111,7 @@ def app():
         
         #components.iframe("""https://www.youtube.com/embed/RVunoQBwHng?list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ""" , scrolling = True , height = 500) 
     elif active_tab == "Hammer":
-        text1 = "<div class='row'><h3>Nến búa Hammer</h3>\
+        text1 = "<h3>Nến búa Hammer</h3>\
         <p>Nến hammer là một trong những mẫu nến đảo chiều quan trọng, thường xuất hiện ở đáy của <strong>một xu hướng giảm giá</strong>. \
         Nó có thể là nến xanh hay đỏ nhưng nó đều có đặc điểm chung là thân nến nhỏ và bóng dưới rất dài thường gấp hơn 2 lần độ dài thân nến.</p>\
         <p>Trong mẫu nến hammer bóng dưới càng dài, bóng trên càng ngắn, thân của nến càng nhỏ càng có ý nghĩa <strong>tăng giá</strong>. Mặc dù thân của nến hammer có thể màu xanh hay đỏ, mức độ tăng giá sẽ đáng kể hơn nếu thân của hammer màu xanh. \
@@ -119,8 +119,8 @@ def app():
         Đó gần như là dấu hiệu của sự tăng giá. </li><li>Nếu thân của hammer màu đỏ, nó thể hiện rằng giá đóng cửa thấp hơn mức giá mở cửa hàm ý rằng <strong>mức độ tăng giá yếu hơn</strong>.</li></p>"
             
         st.markdown(text1, unsafe_allow_html=True)
+        
         col1, col2, col3 = st.columns([1,6,1])
-
         with col1:
             st.write("")
 
@@ -151,7 +151,73 @@ def app():
         with col3:
             st.write("")
         
+    elif active_tab == "Hanging-man":
+        text1 = "<h3>Nến người treo cổ Hangingman</h3>\
+            <p>Nến hanging man hay còn gọi là nến “người treo cổ” là một mẫu hình nến đảo chiều hữu ích trong đồ thị hình nến.\
+            Nhìn về hình thức thì mẫu nến hanging man không khác gì với mẫu nến hammer nhưng điểm khác biệt duy nhất là vị trí xuất hiện của nó trên đồ thị giá. \
+            Nến&nbsp;<strong>hanging man</strong>&nbsp;thường xuất hiện ở đỉnh của một xu hướng tăng giá. \
+            Hay nói cách khác khi nến hammer xuất hiện ở đỉnh của một xu hướng tăng thì gọi là nến Hanging Man. Đây là mẫu hình nến báo hiệu giá sắp quay đầu giảm.</p> \
+            <p>Nếu thân của Hanging man màu đỏ, nó thể hiện rằng giá đóng cửa không thể trở lại mức giá mở cửa. Điều đó hàm ý khả năng giá sắp quay đầu giảm. \
+            Tuy nhiên điều quan trọng là bạn phải đợi sự xác nhận của Hanging man vì trong bối cảnh thị trường đã thể hiện hết khả năng tăng giá thì hanging man xuất hiện. \
+            Vào phiên thị trường mở cửa ở gần giá cao rồi bị bán tháo, sau đó phục hồi đóng cửa ở gần mức giá cao hoặc ở mức giá cao nhất. \
+            Sức mạnh này không phải là kiểu hành động giá để bạn nghĩ rằng Hanging man có thể là đỉnh đảo chiều. \
+            Nhưng kiểu hành động này chỉ ra rằng thị trường đã bắt đầu hành động bán tháo, nó đã trở lên dễ bị tấn công tiếp khi chúng ta không kịp đề phòng. \
+            Tín hiệu xác nhận có thể là một cây nến giảm tiếp theo có khoảng trống giảm giá (Giữa phần thân nến phiên xuất hiện hanging man với giá mở cửa kế tiếp) \
+            hoặc có thể là phiên giảm giá với giá đóng cửa thấp hơn phiên đóng cửa của cây nến hanging man ngày hôm trước.</p>"
+            
+        st.markdown(text1, unsafe_allow_html=True)
+
+        col1, col2 = st.columns(2)
+        with col1:
+            image = Image.open('images/hanging_man.jpg')
+            st.image(image, caption="Nến người treo cổ Hanging-man", use_column_width='always')
+        with col2:
+            image = Image.open('images/hanging_man2.jpg')
+            st.image(image, caption="Ví dụ minh họa cho nến người treo cổ Hanging-man", use_column_width='always') 
         
+        text2 = """<div class='row'><h3>Nến sao băng Shooting star</h3>\
+            <p>Nến Shooting star hay còn gọi là nến "sao băng" là một mẫu hình nến đảo chiều thường xuất hiện ở đỉnh của một xu hướng tăng. \
+            Nến Shooting star về hình thức giống hệt mô hình nến búa ngược inverted hammer. Mẫu hình shooting star gửi một thông điệp cảnh báo <strong>một đỉnh sắp xảy ra</strong>, \
+            như tên gọi của nó là <strong>một sao băng</strong>. Nó thường không phải là một tín hiệu đảo chiều chính như mẫu hình Evening star. Nến sao băng Shooting star có một thân nhỏ nằm ở đáy trong phạm vi của phiên với một bóng trên dài. \
+            Giống như đối với tất cả các ngôi sao, màu của thân nến không phải là quan trọng có thể xanh hoặc đỏ.</p>\
+            <p>Mẫu hình nến Shooting star là một cảnh báo đỉnh sắp xảy ra, tuy nhiên nó không phải là một chỉ báo chắc chắn về một sự đảo chiều của giá. Để có thêm thông tin về sự đảo chiều cần phải kết hợp với các mẫu hình nến hoặc các chỉ báo khác để ra quyết định chính xác.</p>
+        """
+            
+        st.markdown(text2, unsafe_allow_html=True)
+        col1, col2 = st.columns(2)
+
+        with col1:
+            image = Image.open('images/shooting.jpg')
+            st.image(image, caption="Nến sao băng Shooting star", use_column_width='always')
+        with col2:
+            image = Image.open('images/shooting2.jpg')
+            st.image(image, caption="Minh họa Nến sao băng xuất hiện ở đỉnh của 1 xu hướng", use_column_width='always')    
+          
+        #st.video("https://www.youtube.com/watch?v=5eFblK8iTJ8&list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ&index=3")
+    elif active_tab == "Doji":
+        text1 = """<h3>Nến Doji</h3>\
+            <p>Nến Doji là một mẫu hình nến đặc biệt trong đồ thị hình nến candlesticks. Nó không có thân nến và chỉ có bóng nến trên dưới. \
+            Nến Doji hình thành khi giá đóng cửa và giá mở cửa của chứng khoán bằng nhau hoặc xấp xỉ nhau. Độ dài của bóng trên và bóng dưới có thể khác nhau. \
+            Trên biểu đồ hình nến Doji có hình dạng như một “dấu cộng” hoặc “chữ thập” rất dễ nhận ra.</p> 
+            <p>Doji thể hiện sự lưỡng lự, thiếu quyết đoán hoặc giằng co giữa người mua và người bán.\
+            Giá di chuyển trên và dưới mức mở cửa trong phiên, nhưng đóng cửa ở hoặc gần mức mở. Kết quả là cung cầu cân bằng nhau không bên nào giành được ưu thế và một bước ngoặt mới có thể đang hình thành.</p>\
+            <p>Nến Doji thường xuất hiện trên đồ thị giá của chứng khoán và do đó được coi là một dấu hiệu nghỉ ngơi tạm thời hướng di chuyển của giá.</p>\
+            <p>Sự liên quan của một&nbsp; Doji phụ thuộc vào xu hướng trước hoặc nến trước. Sau một xu hướng tăng hoặc sau một cây nến xanh dài, một cây nến Doji xuất hiện báo hiệu rằng áp lực mua đang bắt đầu suy yếu.\
+            Sau một xu hướng giảm, hoặc sau một cây nến đỏ dài, nến Doji xuất hiện báo hiệu rằng áp lực bán đang bắt đầu giảm. Doji chỉ ra rằng các lực lượng cung và cầu đang trở nên cân bằng hơn và một sự thay đổi trong xu hướng có thể gần kề.\
+            Doji một mình là không đủ để đánh dấu một sự đảo ngược, do đó ta cần phải dựa vào các cây nến xung quanh và xác nhận thêm từ các chỉ báo phân tích kỹ thuật khác để xác nhận.</p>\
+        """
+        st.markdown(text1, unsafe_allow_html=True)  
+        col1, col2, col3 = st.columns([1,3,1])
+        with col1:
+            st.write("")
+
+        with col2:
+            image = Image.open('images/doji.jpg')
+            st.image(image, caption="Nến Doji", use_column_width='always') 
+        with col3:
+            st.write("")
+        #st.video("https://www.youtube.com/watch?v=5eFblK8iTJ8&list=PLQsE4sifO3TSjzEsLHlbbbtIz_2aXMSwJ&index=3")
+
     elif active_tab == "Contact":
         st.write("If you'd like to contact me, then please don't.")
     else:

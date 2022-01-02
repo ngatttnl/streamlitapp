@@ -18,8 +18,6 @@ app.add_app("Data Download", datadownload.app)
 app.add_app("Coin Market", coinmarket.app)
 app.add_app("Crypto Tracker", crypto.app)
 
-
-
 app.run()
 
 
