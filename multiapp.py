@@ -42,10 +42,10 @@ class MultiApp:
         print("get: " + self.language)
         return self.language
     def run(self):
-        st.set_page_config(layout="wide")
+        st.set_page_config(page_title = "Investing world", layout="wide")
         #space because of menu
         menu_div = """
-            <div style="padding-top: 3rem;">
+            <div style="padding-top: 2rem;">
                 &nbsp;
             </div>
         """
