@@ -47,46 +47,8 @@ class MultiApp:
         languages = {"vi_VN": "Việt Nam", "en": "English", "de_DE": "Deutsch"}
         if 'key' not in st.session_state:
             st.session_state['key'] = 'en'
-        st.session_state['key'] = st.sidebar.selectbox("Select language", languages.keys(), format_func=lambda x:languages[ x ])
-        css_res = """
-            <style>
-                @media screen and (max-width: 1000px) {
-                    .wrapMenuHeader .btnBurger {
-                        display: flex;
-                    }
+        st.session_state['key'] = st.sidebar.selectbox("Select language", languages.keys(), format_func=lambda x:languages[ x ])   
 
-                    .wrapMenuHeader .wrapLogoMenu {
-                        display: flex;
-                        height: auto;
-                        align-items: flex-start;
-                        gap: 0px;
-                        flex-direction: column;
-                        max-height: 30px;
-                        overflow: hidden;
-                        transition: all .2s;
-                        -webkit-transition: all .2s;
-                        -moz-transition: all .2s;
-                        -ms-transition: all .2s;
-                        -o-transition: all .2s;
-                    }
-                    
-                    .wrapMenuHeader .wrapMenu {
-                        flex-direction:column;
-                        gap: 0px;
-                        width: 100%;
-                        margin-top: 10px;
-                    }
-                    
-                    .wrapMenuHeader .wrapMenu .MenuLink {
-                        width: 100%;
-                        display: flex;
-                        padding-top: 8px;
-                        padding-bottom: 8px;
-                    }
-                }
-            </style>
-        """
-        st.markdown(css_res, unsafe_allow_html=True)
         css_menu="""
             <style>
                 .wrapMenuHeader,
@@ -100,7 +62,7 @@ class MultiApp:
                 }
                 .wrapMenuHeader {
                     width: 100%;
-                    background-color: #3498DB;
+                    background-color: green;
                     padding-left: 20px;
                     padding-right: 20px;
                     padding-top: 15px;
@@ -231,39 +193,7 @@ class MultiApp:
                 </label>
             </div>
         """
-        
-        expand_menu = f"""
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-            <div style="position: fixed;">
-                <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style=" background-color: #3498DB;">
-                <a class="navbar-brand" href="https://thanhnga.herokuapp.com" target="_blank">Thanh Nga</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav" style="scroll-behavior: auto;">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                        <a class="nav-link" href="http://khuonchauthanhphuc.tk" target="_blank">Khuôn chậu Thanh Phúc</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="http://bazancider.tk" target="_blank">Rượu trái cây Bazan</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="https://www.linguar.com" target="_blank">Học ngoại ngữ</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="http://thanhnga.tk" target="_blank">My website</a>
-                        </li>
-                    </ul>
-                </div>
-                </nav>
-            </div>
-            """
-        
         st.markdown(ex_menu, unsafe_allow_html=True)
-        #components.html(expand_menu, height=120, scrolling=True)
          
         hide_menu_style = """
                 <style>
@@ -276,7 +206,7 @@ class MultiApp:
         PINNED_NAV_STYLE = """
             <style>
             .sidebar{
-                padding-top: 50rem;
+                padding-top: 3rem;
             }
             .reportview-container .sidebar-content {
                 padding-top: 0rem;
