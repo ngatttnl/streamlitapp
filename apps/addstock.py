@@ -25,8 +25,8 @@ def app():
                     else:
                         st.warning("Name of stock is not empty!")
                 except:
-                    st.warning("The stock already exists")
-                """
+                    st.warning("The stock already exists")"""
+                
                 st.warning("You can't add stocks now!")
                 
         st.subheader("Vietnamese Stocks")
@@ -72,7 +72,7 @@ def app():
             st.warning("Deleted: '{}'".format(name))"""
 
         """if st.button("Delete Wrong stocks"):
-            delete_wrong()
+            #delete_wrong()
             st.warning("Deleted: '{}'")"""
         
         

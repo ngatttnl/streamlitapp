@@ -41,6 +41,7 @@ class MultiApp:
     def get_language(self):
         print("get: " + self.language)
         return self.language
+    
     def run(self):
         st.set_page_config(page_title = "Investing world", layout="wide")
         #space because of menu
@@ -205,14 +206,6 @@ class MultiApp:
         """
         st.markdown(ex_menu, unsafe_allow_html=True)
          
-        hide_menu_style = """
-                <style>
-                #MainMenu {visibility: hidden;}
-                #stsidebar
-                </style>
-                """
-        st.markdown(hide_menu_style, unsafe_allow_html=True)
-        
         PINNED_NAV_STYLE = """
             <style>
             .sidebar{
@@ -231,6 +224,27 @@ class MultiApp:
             </style>
         """
         st.markdown(PINNED_NAV_STYLE,unsafe_allow_html=True)
+
+        #footer:
+        footer_style = """
+        <style>
+        # MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+       
+        footer:after {
+            content:'Made by: ngattt@hcmuaf.edu.vn'; 
+            visibility: visible;
+            display: block;
+            position: relative;
+            #background-color: green;
+            padding: 5px;
+            top: 2px;
+        }
+        </style>
+        
+        """
+        
+        st.markdown(footer_style, unsafe_allow_html=True)
         #app = st.selectbox(     
       
         app = st.sidebar.radio(

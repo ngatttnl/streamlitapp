@@ -16,12 +16,12 @@ def app():
     df = df.sort_values(by=['name']) 
     stocks = df.set_index(['exchange'])['name'].to_dict()
     
-    col01, col02 = st.columns(2)
+    col01, col02 = st.columns([3, 1])
     with col01:
-        stock = st.selectbox('Select', options=stocks, format_func=lambda x:stocks[ x ])
+        stock = st.selectbox('Select a stock in the list', options=stocks, format_func=lambda x:stocks[ x ])
         
     with col02:
-        st.write("Click here if the page doesn't refresh")
+        st.write("Press Enter or click Submit")
         btn = st.button("Submit")
     if btn:
         pass
@@ -50,8 +50,7 @@ def app():
         <!-- TradingView Widget END -->
         """, width=520)
     else:
-        #chart
-       
+        #chart 
         components.html(f"""
             <!-- TradingView Widget BEGIN -->
         <!-- TradingView Widget BEGIN -->
