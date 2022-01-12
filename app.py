@@ -8,7 +8,7 @@ app = MultiApp()
 # Add all your application here
 
 app.add_app("News", posts.app)
-app.add_app("Learning - Candlestick", candlestick.app)
+#app.add_app("Learning - Candlestick", candlestick.app)
 app.add_app("Learning - Patterns", pattern.app)
 app.add_app("VN Stock Screener", stockscreener.app)
 app.add_app("VN Stock Technical", stocktechnical.app)
