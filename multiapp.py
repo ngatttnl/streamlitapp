@@ -99,12 +99,12 @@ class MultiApp:
                     gap: 15px;
                 }
                 .wrapMenuHeader .wrapMenu .MenuLink {
-                    color: #9ACCED;
+                    color: white;
                     font-size: 16px;
                     font-weight: 700px;
                 }
                 .wrapMenuHeader .wrapMenu .MenuLink:hover {
-                    color : rgba(255,255,255,.75)
+                    color : white
                 }
                 .wrapMenuHeader .btnBurger {
                     position: absolute;
@@ -126,7 +126,7 @@ class MultiApp:
                     font-size: 22px
                 }
                 .wrapMenuHeader .btnBurger:hover {
-                    color : rgba(255,255,255,.75)
+                    color : white
                 }
                 input[id="collapseMenuMoile"]:checked ~ .wrapLogoMenu {
                     max-height: 100vh !important;
@@ -188,8 +188,8 @@ class MultiApp:
                             </a>
                         </li>    
                         <li class="menuItem">
-                            <a href="https://www.linguar.com" class="MenuLink" target="_blank">
-                                Học ngoại ngữ
+                            <a href="https://www.linguar.com/groups" class="MenuLink" target="_blank">
+                                Language Exchange
                             </a>
                         </li>    
                         <li class="menuItem">
@@ -228,20 +228,19 @@ class MultiApp:
         #footer:
         footer_style = """
         <style>
-        # MainMenu {visibility: hidden;}
-        footer {visibility: hidden;}
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
        
-        footer:after {
-            content:'Made by: ngattt@hcmuaf.edu.vn'; 
-            visibility: visible;
-            display: block;
-            position: relative;
-            #background-color: green;
-            padding: 5px;
-            top: 2px;
-        }
-        </style>
-        
+            footer:after {
+                content:'Made by: ngattt@hcmuaf.edu.vn'; 
+                visibility: visible;
+                display: block;
+                position: relative;
+                #background-color: green;
+                padding: 5px;
+                top: 2px;
+            }
+        </style>      
         """
         
         st.markdown(footer_style, unsafe_allow_html=True)

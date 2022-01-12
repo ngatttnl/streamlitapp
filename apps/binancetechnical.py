@@ -157,7 +157,7 @@ def app():
             ]
         ],
         "chartOnly": false,
-        "width": 1100,
+        "width": 1000,
         "height": 400,
         "locale": "{language}",
         "colorTheme": "light",
@@ -181,7 +181,7 @@ def app():
         </script>
         </div>
         <!-- TradingView Widget END -->
-        """, width=1200, height=400)
+        """, height=400)
         
 
 
