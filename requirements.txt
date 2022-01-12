@@ -11,4 +11,5 @@ pandas
 python-binance
 ccxt
 tradingview_ta
+streamlit-quill
 
