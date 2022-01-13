@@ -26,11 +26,11 @@ def app():
                 """
                 st.markdown(html_content, unsafe_allow_html=True)
             else:
-                col01, col02 = st.columns([0.7, 5])
+                col01, col02 = st.columns([1, 6])
                 with col01:
                     img = "stock.png" #str(count) + ".jpg"
                     image = Image.open('images/small/' + img)
-                    st.image(image, width=150)
+                    st.image(image, width=140)
                     
                 with col02:
                     st.subheader(topic)        
@@ -44,8 +44,8 @@ def app():
         topic = st.text_input("Enter topic name: ", max_chars=100)
         content = st_quill(html=True)  # Spawn a new Quill editor
         st.warning("You can't add posts now!") 
-        if st.button("Add"):
-            """try:
+        """if st.button("Add"):
+            try:
                 if topic!="":
                     add_post(topic, content)
                     st.success("Saved: ".format(topic))
@@ -53,7 +53,7 @@ def app():
                     st.warning("Name of topic and content is not empty!")
             except:
                 st.warning("Something went wrong!")
-            """ 
+        """ 
     elif choice=="Edit Post":
         st.subheader("Edit Post")
         
