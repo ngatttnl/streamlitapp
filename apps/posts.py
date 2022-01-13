@@ -45,7 +45,7 @@ def app():
         topic = st.text_input("Enter topic name: ", max_chars=100)
         content = st_quill(html=True)  # Spawn a new Quill editor
         st.warning("You can't add posts now!") 
-        """if st.button("Add"):
+        if st.button("Add"):
             try:
                 if topic!="":
                     add_post(topic, content)
@@ -54,7 +54,7 @@ def app():
                     st.warning("Name of topic and content is not empty!")
             except:
                 st.warning("Something went wrong!")
-        """       
+             
     elif choice=="Edit Post":
         st.subheader("Edit Post")
         
@@ -70,12 +70,12 @@ def app():
         content = st_quill(value= dfContent.iloc[0]['Content'], html=True)  # Spawn a new Quill editor 
         st.warning("You can't edit post now!")
         
-        """if st.button("Edit"):
+        if st.button("Edit"):
             #newContent = content.replace('"', '###')
             #print(newContent)
             edit_post(content, topic, idTopic)
             st.warning("Edited: '{}'".format(idTopic))
-        """
+        
     elif choice=="Delete Post":
         st.subheader("Delete Stock")
         
